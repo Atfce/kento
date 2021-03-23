@@ -1,0 +1,25 @@
+debug: true
+
+server:
+  port: 12345
+  servlet:
+    context-path: /ticket
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /**
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ticket?characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
+    username: root
+    password: 123yhd.
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.liangjian.manager.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
