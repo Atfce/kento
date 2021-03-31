@@ -10,4 +10,6 @@ import java.util.List;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
     List<User> getUsers(Page<User> page);
+
+    User getUserByTel(String tel);
 }

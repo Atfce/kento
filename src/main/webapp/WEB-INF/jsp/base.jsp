@@ -8,4 +8,8 @@
 
 <script type="text/javascript" src="${ctx}/static/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="${ctx}/static/js/commonUtils.js"></script>
+
+
+
 <link href="${ctx}/static/css/bootstrap.css" rel="stylesheet" type="text/css">

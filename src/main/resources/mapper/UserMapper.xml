@@ -5,4 +5,8 @@
     <select id="getUsers" resultType="com.liangjian.ticket.entity.User">
         SELECT * FROM user
     </select>
+
+    <select id="getUserByTel" resultType="com.liangjian.ticket.entity.User">
+        SELECT * FROM user WHERE tel = #{tel}
+    </select>
 </mapper>

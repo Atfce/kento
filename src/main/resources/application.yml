@@ -4,6 +4,9 @@ server:
   port: 12345
   servlet:
     context-path: /ticket
+    jsp:
+      init-parameters:
+        development: true
 
 spring:
   mvc:
