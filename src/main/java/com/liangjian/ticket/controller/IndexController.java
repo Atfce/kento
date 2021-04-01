@@ -1,10 +1,12 @@
 package com.liangjian.ticket.controller;
 
+import com.liangjian.ticket.dto.UserDTO;
 import com.liangjian.ticket.service.UserService;
 import com.liangjian.ticket.vo.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -30,10 +32,16 @@ public class IndexController {
         return "/front/register";
     }
 
+    @PostMapping("register")
+    @ResponseBody
+    public Result register(@RequestBody @Validated UserDTO userDTO, HttpSession session) {
+        return userService.register(userDTO, session);
+    }
+
     @PostMapping("login")
     @ResponseBody
     public Result login(@RequestParam(required = false) String tel, @RequestParam(required = false) String password,
-            HttpSession session) {
+                        HttpSession session) {
         return userService.login(session, tel, password);
     }
 

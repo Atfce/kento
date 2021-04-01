@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CommonService {
     public boolean sendTelCode(HttpSession session, String tel) {
-        String code = CommonUtil.getRandom(6);
+        String code = CommonUtil.getRandomNum(6);
         //这里可以接入一些短信云服务发送验证码
 
 

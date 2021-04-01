@@ -1,7 +1,24 @@
+.main-content {
+    z-index: auto;
+    /*margin-top: 50px;*/
+    background: #f6fafc;
+    height:100vh;
+}
+
 .layout-content {
     width: 1024px;
     margin: 0 auto;
     overflow: hidden;
+    height: 100%;
+}
+
+.full-layout-content {
+    width: 1024px;
+    margin: 50px auto;
+    overflow: hidden;
+    background-color: #fff;
+    min-height: 400px;
+    height: 100%;
 }
 
 .xo-input-container {
@@ -780,7 +797,6 @@ a:focus {
 }
 
 .KoRegister-closeBtn button {
-    background: url(/skypearl/assets/images/membebtnbg.jpg) 0 0 no-repeat;
     width: 113px;
     height: 25px;
     display: inline-block;

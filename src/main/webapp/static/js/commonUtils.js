@@ -19,6 +19,15 @@ function checkPhone(tel){
 }
 
 var HIDE_HANDLING_DIALOG_TIME = 1000;
+$.getWithCallback = function (url, callback) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        dataType: "json",
+        success: GlobalCallbackWrapper(callback),
+        error: GlobalAjaxErrorFunction
+    });
+}
 
 $.postWithDialog = function (url, data, callback) {
     $.ajax({
@@ -29,6 +38,18 @@ $.postWithDialog = function (url, data, callback) {
                success: GlobalCallbackWrapper(callback),
                error: GlobalAjaxErrorFunction
            });
+}
+
+$.postJsonWithDialog = function (url, data, callback) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        contentType: "application/json",
+        dataType: "json",
+        success: GlobalCallbackWrapper(callback),
+        error: GlobalAjaxErrorFunction
+    });
 }
 
 function GlobalCallbackWrapper(callback) {

@@ -47,20 +47,9 @@
     })
 
     $("#logout").click(function () {
-        $.ajax({
-                   url: "${ctx}/logout",
-                   type: "GET",
-                   success: function (data) {
-                       if (data.code == -1) {
-                           alert(data.msg);
-                       } else {
-                           alert("退出成功！");
-                           window.location.reload();
-                       }
-                   },
-                   error: function (e) {
-                       alert("请求失败！")
-                   }
-               })
+        $.getWithCallback("${ctx}/logout", function (data) {
+            alert("退出成功！");
+            window.location.reload();
+        });
     })
 </script>

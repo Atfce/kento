@@ -8,7 +8,7 @@
 
 <body>
 <%@include file="../header.jsp" %>
-<div style="z-index: auto; margin-top: 50px">
+<div class="main-content">
     <div class="layout-content">
         <div class="full-layout-content">
             <div class="cnRegister-content">
@@ -48,7 +48,7 @@
                                 </label>
                                 <div class="xo-input-container">
                                     <input class="form-control"
-                                           type="text" id="cnLastName" placeholder="生僻字可用拼音代替">
+                                           type="text" id="lastName" placeholder="生僻字可用拼音代替">
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                                 </label>
                                 <div class="xo-input-container">
                                     <input class="form-control"
-                                           type="text" id="cnFirstName" placeholder="生僻字可用拼音代替">
+                                           type="text" id="firstName" placeholder="生僻字可用拼音代替">
                                 </div>
                             </div>
                         </div>
@@ -82,8 +82,10 @@
                                     <span style="color: red">*</span>
                                 </label>
                                 <div class="xo-input-container">
-                                    <input class="form-control"
-                                           type="text" id="gender" placeholder="请输入性别">
+                                    <select class="form-control" id="gender">
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +153,7 @@
                     </div>
 
                     <div class="adultAdmission-saveBtn-content" style="text-align: center">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" id="register">
                             注册
                         </button>
                     </div>
@@ -185,6 +187,24 @@
                 }
             }, 1000);
         });
+    })
+
+    $("#register").click(function () {
+        var user = {
+            "lastName": $("#lastName").val().trim(),
+            "firstName": $("#firstName").val().trim(),
+            "idCard": $("#idCard").val().trim(),
+            "gender": $("#gender").val(),
+            "tel": $("#tel").val().trim(),
+            "password": $("#password").val().trim(),
+            "validCode": $("#validCode").val().trim()
+        };
+        $.postJsonWithDialog("${ctx}/register", JSON.stringify(user), function (data) {
+            alert("注册成功！快去登录吧！");
+            window.location.href = "${ctx}/login";
+        })
+
+
     })
 </script>
 </body>
