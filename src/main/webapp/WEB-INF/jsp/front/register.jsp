@@ -23,13 +23,13 @@
                         </p>
                         <ol>
                             <li>
-                                1、如使用外国人永久居留身份证/港澳台居民居住证件，请选择“其他”证件进行入会。
+                                如使用外国人永久居留身份证/港澳台居民居住证件，请选择“其他”证件进行入会。
                             </li>
                             <li>
-                                2、填写姓、名需与所持证件顺序保持一致，否则将影响乘机和积分入账。
+                                填写姓、名需与所持证件顺序保持一致，否则将影响乘机和积分入账。
                             </li>
                             <li>
-                                3、如用身份证注册，请登录增加护照以免国际航班里程累积失败
+                                如用身份证注册，请登录增加护照以免国际航班里程累积失败
                             </li>
                         </ol>
                     </div>
@@ -124,7 +124,7 @@
                                 <div class="adultAdmission-safe-leftDiv">
                                     <div class="xo-input-container">
                                         <input class="form-control" id="validCode"
-                                        placeholder="请输入验证码">
+                                               placeholder="请输入验证码">
 
                                     </div>
                                 </div>
@@ -149,5 +149,32 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#getValidCodeBtn").click(function () {
+        var tel = $("#tel").val().trim();
+        if (!checkPhone(tel)) {
+            return;
+        }
+        $.postWithDialog("${ctx}/common/send_tel_code", {
+            "tel": tel
+        }, function (data) {
+            var that = $("#getValidCodeBtn");
+            var timeo = 60;
+            var timeStop = setInterval(function () {
+                timeo--;
+                if (timeo > 0) {
+                    that.text('重新发送' + timeo + 's');
+                    that.attr('disabled', 'disabled');//禁止点击
+                } else {
+                    timeo = 60;//当减到0时赋值为60
+                    that.text('获取验证码');
+                    clearInterval(timeStop);//清除定时器
+                    that.removeAttr('disabled');//移除属性，可点击
+                }
+            }, 1000);
+        });
+    })
+</script>
 </body>
 </html>

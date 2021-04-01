@@ -10,6 +10,14 @@ function getQueryVariable(variable) {
     return (false);
 }
 
+function checkPhone(tel){
+    if(!(/^1[3-9]\d{9}$/.test(tel))){
+        alert("请输入正确的手机号");
+        return false;
+    }
+    return true;
+}
+
 var HIDE_HANDLING_DIALOG_TIME = 1000;
 
 $.postWithDialog = function (url, data, callback) {
