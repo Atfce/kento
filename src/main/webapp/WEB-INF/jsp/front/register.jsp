@@ -106,6 +106,17 @@
                                            type="text" id="tel" placeholder="中国(86)">
                                 </div>
                             </div>
+
+                            <div class="adultAdmission-personal-rightDiv">
+                                <label class="adultAdmission-personal-label">
+                                    <span>登录密码</span>
+                                    <span style="color: red">*</span>
+                                </label>
+                                <div class="xo-input-container">
+                                    <input class="form-control"
+                                           type="text" id="password" placeholder="请输入密码">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
