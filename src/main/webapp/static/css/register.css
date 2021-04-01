@@ -1,0 +1,862 @@
+.layout-content {
+    width: 1024px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.xo-input-container {
+    width: 322px
+}
+
+input {
+    font-size: 14px !important
+}
+
+a:focus {
+    outline: auto;
+    border: 1px solid #2db7f5 !important
+}
+
+.m-component-select .m-select-section .select-section-selected-value {
+    font-size: 14px
+}
+
+.m-component-select-dropdown .m-component-select-dropdown-menu li {
+    font-size: 14px !important
+}
+
+.xo-checkbox-content {
+    background-color: #e2f5fc
+}
+
+.cnRegister-content {
+    width: 100%;
+}
+
+.cnRegister-content .cnRegister-titleP {
+    font-size: 30px;
+    font-weight: 500;
+    color: #006995;
+    margin: 30px 0;
+    text-align: center
+}
+
+.cnRegister-content .cnRegister-titleBox {
+    overflow: hidden;
+    font-size: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8ecef
+}
+
+.cnRegister-content .cnRegister-titleBox div {
+    float: left;
+    width: 440px
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-leftTitleDiv {
+    text-align: right;
+    color: #666
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-leftTitleDiv span {
+    display: inline-block;
+    padding: 0 5px 5px;
+    cursor: pointer
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-leftTitleDiv span:focus {
+    border: 1px solid #006995
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-rightTitleDiv {
+    margin-left: 130px;
+    color: #666
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-rightTitleDiv span {
+    display: inline-block;
+    padding: 0 5px 5px;
+    cursor: pointer
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-rightTitleDiv span:focus {
+    border: 1px solid #006995
+}
+
+.cnRegister-content .cnRegister-titleBox .cnRegister-activeTitle {
+    color: #006995 !important;
+    border-bottom: 3px solid #006995 !important
+}
+
+.adultAdmission-content {
+    float: left;
+    width: 100%;
+    padding: 0 20px 0 30px
+}
+
+.adultAdmission-content .adultAdmission-titleBox {
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666
+}
+
+.adultAdmission-content .adultAdmission-titleBox li, .adultAdmission-content .adultAdmission-titleBox p {
+    margin-bottom: 10px
+}
+
+.adultAdmission-content .adultAdmission-titleBox .adultAdmission-titleBox-titleP {
+    font-size: 18px;
+    color: #333
+}
+
+.adultAdmission-content .adultAdmission-personal-content {
+    float: left;
+    width: 100%
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-title b {
+    margin-right: 5px;
+    border-left: 4px solid #006995
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .m-select-section {
+    width: 322px
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-inputWidth {
+    width: 300px
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-leftDiv, .adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-rightDiv {
+    float: left;
+    width: 50%
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-leftDiv .adultAdmission-personal-label, .adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-rightDiv .adultAdmission-personal-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 16px
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-leftDiv .adultAdmission-personal-label span, .adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-rightDiv .adultAdmission-personal-label span {
+    display: inline-block;
+    color: #666
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-leftDiv .adultAdmission-personal-label .adultAdmission-personal-need, .adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-rightDiv .adultAdmission-personal-label .adultAdmission-personal-need {
+    color: #ca1728;
+    vertical-align: middle;
+    margin-left: 10px
+}
+
+#certTypeSelect {
+    float: left;
+    width: 100%;
+    height: 31px;
+    padding: 6px 0 6px 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+    border: 0;
+    cursor: pointer;
+}
+
+.adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-leftDiv .adultAdmission-personal-passImg, .adultAdmission-content .adultAdmission-personal-content .adultAdmission-personal-inputDiv .adultAdmission-personal-rightDiv .adultAdmission-personal-passImg {
+    vertical-align: middle;
+    margin-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-contact-content {
+    width: 100%;
+    margin: 20px 0 30px;
+    float: left
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-title {
+    font-size: 20px;
+    margin-bottom: 20px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-title b {
+    margin-right: 5px;
+    border-left: 4px solid #006995
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-title span {
+    color: #333
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-title .adultAdmission-contact-smSpan {
+    padding-left: 5px;
+    font-size: 14px;
+    color: #666
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox {
+    float: left;
+    width: 100%;
+    padding-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-box {
+    float: left;
+    width: 100%;
+    min-height: 30px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneSelect {
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #666
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneSelect label {
+    margin-left: 5px;
+    cursor: pointer
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneSelect input:focus {
+    outline: auto
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneInput {
+    float: left;
+    width: 100%;
+    padding-left: 20px;
+    margin-bottom: 20px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneInput .m-select-section {
+    width: 130px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneInput .select-section-selected-value {
+    width: 70%
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneInput .adultAdmission-contact-codeDiv, .adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneInput .adultAdmission-contact-phoneDiv {
+    float: left
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-phoneInput input {
+    width: 300px;
+    margin-left: 20px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-emailInput {
+    padding-left: 20px;
+    margin-bottom: 20px
+}
+
+.adultAdmission-content .adultAdmission-contact-content .adultAdmission-contact-selectBox .adultAdmission-contact-emailInput input {
+    width: 300px
+}
+
+.adultAdmission-content .adultAdmission-safe-content {
+    float: left;
+    width: 100%
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-title {
+    font-size: 20px;
+    margin-bottom: 20px
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-title b {
+    margin-right: 5px;
+    border-left: 4px solid #006995
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-title span {
+    color: #333
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 16px;
+    padding-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-label span {
+    display: inline-block;
+    color: #666
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-label .adultAdmission-safe-need {
+    color: #ca1728;
+    vertical-align: middle;
+    margin-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-detailDiv {
+    overflow: hidden;
+    padding-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-detailDiv .adultAdmission-safe-leftDiv {
+    float: left;
+    width: 350px
+}
+
+.adultAdmission-content .adultAdmission-safe-content .adultAdmission-safe-detailDiv .adultAdmission-safe-leftDiv input {
+    width: 300px
+}
+
+.adultAdmission-content .adultAdmission-clause-content {
+    float: left;
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    margin-top: 20px;
+    padding-left: 10px
+}
+
+.adultAdmission-content .adultAdmission-clause-content span {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+    vertical-align: middle;
+    color: #333
+}
+
+.adultAdmission-content .adultAdmission-clause-content a {
+    color: #006995;
+    cursor: pointer
+}
+
+.adultAdmission-content .adultAdmission-saveBtn-content {
+    float: left;
+    width: 100%;
+    padding: 60px 0 20px
+}
+
+.adultAdmission-content .adultAdmission-saveBtn-content div {
+    padding-left: 435px
+}
+
+.adultAdmission-personal-calendar {
+    width: 310px;
+    height: 31px;
+    line-height: 31px;
+    padding-left: 10px
+}
+
+.adultAdmission-select {
+    width: 322px
+}
+
+.adultAdmission-display {
+    display: none
+}
+
+.adultAdmission-disabledInput {
+    width: 310px;
+    height: 31px;
+    line-height: 31px;
+    padding-left: 10px
+}
+
+.adultAdmission-errorBox {
+    height: 18px;
+    line-height: 18px;
+    margin-top: 10px;
+    clear: both;
+    color: #ca1728
+}
+
+.adultAdmission-errorBox img {
+    float: left
+}
+
+.adultAdmission-errorBox span {
+    float: left;
+    padding-top: 2px;
+    padding-left: 5px
+}
+
+.adultAdmission-topErrorBox {
+    float: left;
+    width: 100%;
+    padding-top: 20px
+}
+
+.adultAdmission-topErrorBox .adultAdmission-errorTitle {
+    float: left;
+    width: 100%;
+    height: 28px;
+    line-height: 26px;
+    margin-bottom: 20px
+}
+
+.adultAdmission-topErrorBox .adultAdmission-errorTitle img {
+    float: left
+}
+
+.adultAdmission-topErrorBox .adultAdmission-errorTitle span {
+    float: left;
+    font-size: 22px;
+    margin-left: 10px;
+    color: #ca1728
+}
+
+.adultAdmission-topErrorBox ul {
+    margin-left: 52px
+}
+
+.adultAdmission-topErrorBox ul li {
+    width: 95%;
+    word-break: break-all;
+    padding-bottom: 10px;
+    font-size: 14px;
+    list-style: outside;
+    color: #ca1728;
+    cursor: pointer
+}
+
+.adultAdmission-guarder-content {
+    float: left;
+    width: 100%
+}
+
+.adultAdmission-guarder-content .adultAdmission-guarder-title {
+    font-size: 20px;
+    margin-bottom: 30px
+}
+
+.adultAdmission-guarder-content .adultAdmission-guarder-title b {
+    margin-right: 5px;
+    border-left: 4px solid #006995
+}
+
+.adultAdmission-check-guarder {
+    margin-left: 20px
+}
+
+.adultAdmission-check-box {
+    display: inline-block
+}
+
+.adultAdmission-guardian-smSpan {
+    padding-left: 5px;
+    color: #ca1728;
+    font-size: 14px
+}
+
+.KoRegister-content {
+    width: 695px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    color: #666
+}
+
+.KoRegister-content .xo-input-container {
+    width: 200px
+}
+
+.KoRegister-content .KoRegister-leftInput {
+    float: left
+}
+
+.KoRegister-content .KoRegister-titleP {
+    width: 680px;
+    height: 33px;
+    line-height: 33px;
+    color: #008ed0;
+    font-weight: 700;
+    padding-left: 15px;
+    background: url(/skypearl/assets/images/menbg13.gif) 0 0 repeat-x
+}
+
+.KoRegister-content .KoRegister-detailBox {
+    padding: 15px;
+    border-bottom: 1px solid #7cbaed
+}
+
+.KoRegister-content .KoRegister-detail-fullName {
+    overflow: hidden;
+    padding-left: 20px;
+    margin: 15px 0
+}
+
+.KoRegister-content .KoRegister-detail-fullName .KoRegister-detail-surname {
+    float: left;
+    width: 300px
+}
+
+.KoRegister-content .KoRegister-dateTimeBox, .KoRegister-content .KoRegister-informationBox {
+    width: 100%;
+    padding-left: 20px;
+    overflow: hidden;
+    margin-bottom: 15px
+}
+
+.KoRegister-content .KoRegister-dateTimeBox .KoRegister-calendar {
+    height: 31px;
+    line-height: 31px;
+    width: 220px
+}
+
+.KoRegister-content .KoRegister-genderBox {
+    width: 100%;
+    padding-left: 20px;
+    overflow: hidden
+}
+
+.KoRegister-content .KoRegister-genderBox .KoRegister-genderBox-leftInput {
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    margin-right: 10px
+}
+
+.KoRegister-content .KoRegister-contactBox {
+    width: 100%;
+    padding-left: 20px
+}
+
+.KoRegister-content .KoRegister-contactBox .m-select-section {
+    width: 200px
+}
+
+.KoRegister-content .KoRegister-contactBox .select-section-selected-value {
+    width: 80%
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-title {
+    margin: 10px 0 20px 5px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-redColor {
+    color: #ca1728;
+    display: inline-block;
+    padding: 0 5px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-email, .KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-phone {
+    padding-left: 50px;
+    padding-bottom: 15px;
+    clear: both
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-select {
+    float: left;
+    padding-left: 70px;
+    margin-bottom: 15px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-select .xo-input-container {
+    width: 270px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-select .KoRegister-selectBox-div {
+    float: left;
+    padding-right: 10px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-emialBox {
+    overflow: hidden;
+    padding-left: 70px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-emialBox .KoRegister-emialBox-div {
+    float: left;
+    margin-right: 10px
+}
+
+.KoRegister-content .KoRegister-contactBox .KoRegister-contactBox-emialBox .KoRegister-emialBox-midDiv {
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    margin: 0 10px 0 20px
+}
+
+.KoRegister-content .KoRegister-agreeBox {
+    width: 100%;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    overflow: hidden
+}
+
+.KoRegister-content .KoRegister-agreeBox .KoRegister-leftInput {
+    margin-right: 30px
+}
+
+.KoRegister-content .KoRegister-clauseBox {
+    padding: 15px
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clause-title {
+    text-align: center;
+    color: #ca1728;
+    padding-bottom: 10px
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox {
+    padding: 10px;
+    background-color: #eaeaea
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-blueTitle {
+    color: #008dd2;
+    font-weight: 700
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-tipDiv {
+    border: 1px solid #b7b7b7;
+    padding: 5px;
+    color: #666
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-tipDiv span {
+    font-weight: 700
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-tipDiv input {
+    margin-right: 5px
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-ulBox {
+    padding: 5px;
+    color: #666
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-ulBox li {
+    overflow: hidden;
+    margin-bottom: 10px
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-ulBox li input {
+    float: left;
+    margin-right: 15px
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-ulBox li span {
+    float: left
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-ulBox li .KoRegister-liRightSpan {
+    float: right;
+    padding-right: 20px;
+    color: #008dd2;
+    cursor: pointer
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseDetailBox .KoRegister-clause-ulBox li .KoRegister-liRightSpan:hover {
+    text-decoration: underline;
+    color: #f60
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseBox-btn {
+    width: 123px;
+    margin: 10px auto
+}
+
+.KoRegister-content .KoRegister-clauseBox .KoRegister-clauseBox-btn button {
+    background: url(/skypearl/assets/images/membebtnbg.jpg) 0 0 no-repeat;
+    width: 113px;
+    height: 25px;
+    display: inline-block;
+    line-height: 25px;
+    text-align: center;
+    color: #734d29;
+    margin: 0 5px;
+    border: none
+}
+
+.KoRegister-content .KoRegister-errorBox {
+    height: 18px;
+    line-height: 18px;
+    color: #e40021;
+    margin-top: 10px
+}
+
+.KoRegister-content .KoRegister-errorBox img {
+    margin-right: 5px
+}
+
+.KoRegister-content .KoRegister-errorBox span {
+    vertical-align: super
+}
+
+.KoRegister-content .KoRegister-title {
+    float: left;
+    width: 70px;
+    height: 33px;
+    line-height: 33px
+}
+
+.KoRegister-content .KoRegister-title span {
+    color: #ca1728
+}
+
+.KoRegister-dialogBox {
+    padding: 15px;
+    height: 480px;
+    overflow-y: auto
+}
+
+.KoRegister-dialogBox p {
+    color: #666
+}
+
+.KoRegister-dialogBox .KoRegister-firstClause-title {
+    margin-bottom: 10px;
+    color: #9a673a;
+    text-align: center;
+    font-size: 14px
+}
+
+.KoRegister-dialogBox .KoRegister-firstClause-title span {
+    color: #494949;
+    font-weight: 700
+}
+
+.KoRegister-dialogBox .KoRegister-blueTitle {
+    color: #008ed0;
+    font-weight: 700;
+    margin-bottom: 10px
+}
+
+.KoRegister-dialogBox .KoRegister-goldTitle {
+    color: #9a6738;
+    margin-bottom: 5px
+}
+
+.KoRegister-dialogBox .KoRegister-marginTop {
+    margin-top: 10px
+}
+
+.KoRegister-dialogBox table {
+    width: 100%
+}
+
+.KoRegister-dialogBox table th {
+    color: #000;
+    background-color: #0070c0;
+    text-align: center;
+    border: 1px solid #000
+}
+
+.KoRegister-dialogBox table .KoRegister-smTh {
+    width: 20%
+}
+
+.KoRegister-dialogBox table .KoRegister-bigTh {
+    width: 40%
+}
+
+.KoRegister-dialogBox table td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #000;
+    color: #666
+}
+
+.KoRegister-closeBtn {
+    width: 100%;
+    text-align: right;
+    padding: 20px 0 10px
+}
+
+.KoRegister-closeBtn button {
+    background: url(/skypearl/assets/images/membebtnbg.jpg) 0 0 no-repeat;
+    width: 113px;
+    height: 25px;
+    display: inline-block;
+    line-height: 25px;
+    text-align: center;
+    color: #734d29;
+    margin: 0 10px;
+    border: none
+}
+
+.KoRegister-closeBtn button:hover {
+    text-decoration: underline;
+    color: #f60
+}
+
+.successPage-content {
+    padding: 30px
+}
+
+.successPage-content .successPage-titleImg {
+    padding: 20px 0;
+    text-align: center
+}
+
+.successPage-content .successPage-buleP {
+    padding-bottom: 10px;
+    text-align: center;
+    color: #006995;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.successPage-content .successPage-tipP {
+    padding-bottom: 30px;
+    text-align: center;
+    color: #666;
+    font-weight: 500
+}
+
+.successPage-content .successPage-successBtn {
+    padding-bottom: 20px;
+    text-align: center
+}
+
+.successPage-content .successPage-tipBox {
+    width: 910px;
+    padding: 10px 20px 0;
+    margin: 0 auto 15px;
+    background-color: #e2f5fc;
+    border-radius: 5px;
+    color: #666
+}
+
+.successPage-content .successPage-tipBox li {
+    padding-bottom: 10px
+}
+
+.successPage-content .successPage-bottomImg {
+    text-align: center
+}
+
+.successPage-content .successPage-bottomImg img {
+    cursor: pointer
+}
+
+.adultAdmission-verify-div {
+    display: inline-block
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0
+}

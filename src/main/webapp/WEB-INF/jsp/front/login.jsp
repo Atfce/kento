@@ -151,7 +151,7 @@
 
     <div class="middle-content">
         <div class="login-show">
-            <img src="../static/images/loginbg.jpg">
+            <img src="${ctx}/static/images/loginbg.jpg">
         </div>
 
         <div class="wrap">
@@ -201,7 +201,7 @@
                 return;
             }
 
-            $.postWithDialog("${ctx}/index/login", {
+            $.postWithDialog("${ctx}/login", {
                 "tel": tel,
                 "password": password
             }, function (data) {

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
-@RequestMapping("index")
+@RequestMapping("")
 @Controller
 public class IndexController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("")
+    @RequestMapping("index")
     public String index() {
         return "/front/index";
     }
@@ -23,6 +23,11 @@ public class IndexController {
     @GetMapping("login")
     public String loginJsp() {
         return "/front/login";
+    }
+
+    @GetMapping("register")
+    public String registerJsp() {
+        return "/front/register";
     }
 
     @PostMapping("login")
