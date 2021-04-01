@@ -2,6 +2,7 @@ package com.liangjian.ticket.controller;
 
 import com.liangjian.ticket.service.UserService;
 import com.liangjian.ticket.vo.Result;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +27,9 @@ public class IndexController {
 
     @PostMapping("login")
     @ResponseBody
-    public Result login(@RequestParam(required = false) String tel, @RequestParam(required = false) String password, HttpSession session) {
-        boolean valid = userService.login(session, tel, password);
-        if (valid) {
-            return Result.ok();
-        } else {
-            return Result.failed("手机号或密码错误！请重试");
-        }
+    public Result login(@RequestParam(required = false) String tel, @RequestParam(required = false) String password,
+            HttpSession session) {
+        return userService.login(session, tel, password);
     }
 
     @RequestMapping("logout")

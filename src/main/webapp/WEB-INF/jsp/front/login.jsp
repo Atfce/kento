@@ -190,41 +190,38 @@
 
     <script>
         $("#loginBtn").click(function () {
-            $.ajax({
-                url: "${ctx}/index/login",
-                data: {
-                    tel: $("#tel").val(),
-                    password: $("#password").val()
-                },
-                type: "POST",
-                success: function (data) {
-                    if (data.code == -1) {
-                        alert(data.msg);
-                    } else {
-                        var redirect = getQueryVariable("redirect");
-                        if (!redirect) {
-                            window.location.href = "${ctx}/index";
-                        } else {
-                            window.location.href = decodeURIComponent(redirect);
-                        }
-                    }
-                },
-                error: function (e) {
-                    alert("请求失败！")
+            var tel = $("#tel").val().trim();
+            if (tel === "") {
+                alert("请输入手机号！");
+                return;
+            }
+            var password = $("#password").val();
+            if (password === "") {
+                alert("请输入密码！");
+                return;
+            }
+
+            $.postWithDialog("${ctx}/index/login", {
+                "tel": tel,
+                "password": password
+            }, function (data) {
+                var redirect = getQueryVariable("redirect");
+                if (!redirect) {
+                    window.location.href = "${ctx}/index";
+                } else {
+                    window.location.href = decodeURIComponent(redirect);
                 }
-            })
+            });
         })
 
         $("#tel").keypress(function(event){
             if(event.which === 13) {
-                console.log("test")
                 $("#loginBtn").click();
             }
         })
 
         $("#password").keypress(function(event){
             if(event.which === 13) {
-                console.log("test")
                 $("#loginBtn").click();
             }
         })
