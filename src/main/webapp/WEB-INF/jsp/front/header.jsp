@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">订票系统</a>
+    <a class="navbar-brand" href="${ctx}/index">订票系统</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">首页</a>
+                <a class="nav-link" href="${ctx}/index">首页</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">首页</a>
@@ -26,7 +26,7 @@
             </c:if>
             <c:if test="${user != null}">
                 <li class="nav-item">
-                    <a class="nav-link" href="${ctx}/user/info"><c:out value="${user.tel}"/></a>
+                    <a class="nav-link" href="${ctx}/user/info"><c:out value="${user.lastName}"/><c:out value="${user.firstName}"/> <c:out value="${user.tel}"/></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link">|</a>

@@ -3,7 +3,7 @@
 <head>
     <title>订票系统 - 登录</title>
     <%@include file="../base.jsp" %>
-    <link href="${ctx}/static/css/login.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/front/login.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

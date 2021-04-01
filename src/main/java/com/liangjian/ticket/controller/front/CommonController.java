@@ -1,4 +1,4 @@
-package com.liangjian.ticket.controller;
+package com.liangjian.ticket.controller.front;
 
 import javax.servlet.http.HttpSession;
 

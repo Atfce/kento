@@ -1,4 +1,4 @@
-package com.liangjian.ticket.controller;
+package com.liangjian.ticket.controller.front;
 
 import com.liangjian.ticket.dto.UserDTO;
 import com.liangjian.ticket.service.UserService;

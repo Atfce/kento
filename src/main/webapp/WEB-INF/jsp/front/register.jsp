@@ -3,11 +3,11 @@
 <head>
     <title>订票系统 - 注册</title>
     <%@include file="../base.jsp" %>
-    <link href="${ctx}/static/css/register.css" rel="stylesheet" type="text/css">
+    <link href="${ctx}/static/css/front/register.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<%@include file="../header.jsp" %>
+<%@include file="header.jsp" %>
 <div class="main-content">
     <div class="layout-content">
         <div class="full-layout-content">
