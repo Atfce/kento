@@ -52,7 +52,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">添加航班</h5>
+                <h5 class="modal-title" id="modalTitle">添加航班</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -90,6 +90,20 @@
                     <div class="form-group">
                         <label>价格</label>
                         <input type="text" autocomplete="off" class="form-control" name="amount" placeholder="请输入价格">
+                    </div>
+                    <div class="form-group">
+                        <label>航班状态</label>
+                        <div style="width: 100%">
+                            <select name="status" style="width: 100%">
+                                <option value="0">售票中</option>
+                                <option value="1">停止售票</option>
+                                <option value="2">检票中</option>
+                                <option value="3">飞行中</option>
+                                <option value="4">已完成</option>
+                                <option value="-1">延误</option>
+                                <option value="-2">取消</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-check" id="add30DaysDiv">
                         <input type="checkbox" class="form-check-input" id="add30Days">
@@ -142,6 +156,7 @@
                     "aircraft": $("#addModal [name='aircraft']").val().trim(),
                     "seatTotal": $("#addModal [name='seatTotal']").val().trim(),
                     "amount": $("#addModal [name='amount']").val().trim(),
+                    "status": $("#addModal [name='status']").val(),
                     "add30Days": $("#add30Days").is(':checked')
                 };
 
@@ -179,7 +194,31 @@
                     {data: "scheduledArrival"},
                     {data: "departureCity"},
                     {data: "arrivalCity"},
-                    {data: "status"},
+                    {data: "status", "className": "ellipsis", "render": function (data) {
+                            if (data == 0) {
+                                return "售票中";
+                            }
+                            if (data == 1) {
+                                return "停止售票";
+                            }
+                            if (data == 2) {
+                                return "检票中";
+                            }
+                            if (data == 3) {
+                                return "飞行中";
+                            }
+                            if (data == 4) {
+                                return "已完成";
+                            }
+                            if (data == -1) {
+                                return "延误";
+                            }
+                            if (data == -2) {
+                                return "取消";
+                            }
+                            return  "error";
+                        }
+                    },
                     {data: "seatTotal"},
                     {data: "seatEmpty"},
                     {data: "amount"},
@@ -213,6 +252,7 @@
     }
 
     function onEdit(id) {
+        $("#modalTitle").html("更新航班信息");
         $("#add30DaysDiv").css("display", "none");
         $("#addModal [name='flightNo']").val(flights[id].flightNo);
         $("#addModal [name='scheduledDeparture']").val(flights[id].scheduledDeparture);
@@ -222,6 +262,8 @@
         $("#addModal [name='aircraft']").val(flights[id].aircraft);
         $("#addModal [name='seatTotal']").val(flights[id].seatTotal);
         $("#addModal [name='amount']").val(flights[id].amount);
+        $("#addModal [name='status']").val(flights[id].status);
+        $("#addModal [name='seatEmpty']").val(flights[id].seatEmpty);
         $("#addModal").modal("show");
 
         $("#addModal #add").unbind().click(function () {
@@ -235,7 +277,7 @@
                 "aircraft": $("#addModal [name='aircraft']").val().trim(),
                 "seatTotal": $("#addModal [name='seatTotal']").val().trim(),
                 "amount": $("#addModal [name='amount']").val().trim(),
-                "status": flights[id].status,
+                "status": $("#addModal [name='status']").val(),
                 "seatEmpty": flights[id].seatEmpty,
             };
 

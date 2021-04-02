@@ -6,9 +6,10 @@ import com.liangjian.ticket.dto.FlightDTO;
 import com.liangjian.ticket.entity.Flight;
 import com.liangjian.ticket.mapper.FlightMapper;
 
-import com.liangjian.ticket.vo.Const;
+import com.liangjian.ticket.utils.CommonUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -18,7 +19,6 @@ import java.util.Objects;
 public class FlightService extends ServiceImpl<FlightMapper, Flight> {
     public void saveFlight(FlightDTO flightDTO) {
         if (Objects.isNull(flightDTO.getId())) {
-            flightDTO.setStatus(Const.FLIGHT_STATUS_ONSALE);
             flightDTO.setSeatEmpty(flightDTO.getSeatTotal());
             baseMapper.insert(flightDTO.convertToFlight());
             if (flightDTO.getAdd30Days()) {
@@ -30,11 +30,21 @@ public class FlightService extends ServiceImpl<FlightMapper, Flight> {
                 }
             }
         } else {
-            this.save(flightDTO.convertToFlight());
+            this.saveOrUpdate(flightDTO.convertToFlight());
         }
     }
 
-    public Page<Flight> getFlightPage(Integer current, Integer size, String departureCity, String arrivalCity, Timestamp scheduledDeparture, Timestamp scheduledDepartureEnd) {
+    public Page<Flight> getFlightPage(Integer current, Integer size, String departureCity, String arrivalCity, String scheduledTime) {
+        Timestamp scheduledDeparture = null;
+        Timestamp scheduledDepartureEnd = null;
+        if (StringUtils.hasText(scheduledTime)) {
+            scheduledTime += " 00:00:00";
+            scheduledDeparture = CommonUtil.formatTimestamp(scheduledTime);
+            assert scheduledDeparture != null;
+            scheduledDepartureEnd = new Timestamp(scheduledDeparture.getTime() + 86400000);
+        } else {
+            scheduledDeparture = new Timestamp(System.currentTimeMillis());
+        }
         Page<Flight> page = new Page<>(current, size);
         return baseMapper.getFlights(page, departureCity, arrivalCity, scheduledDeparture, scheduledDepartureEnd);
     }

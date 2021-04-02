@@ -19,12 +19,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link ml-3
-                <c:if test="${fn:contains(path,'user')}">
-                    active
-                </c:if>" href="${ctx}/backend/user">用户管理</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link ml-3
                 <c:if test="${fn:contains(path,'order')}">
                     active
                 </c:if>" href="${ctx}/backend/order">订单管理</a>
@@ -34,6 +28,12 @@
                 <c:if test="${fn:contains(path,'message')}">
                     active
                 </c:if>" href="${ctx}/backend/message">留言管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link ml-3
+                <c:if test="${fn:contains(path,'user')}">
+                    active
+                </c:if>" href="${ctx}/backend/user">用户管理</a>
             </li>
         </ul>
 

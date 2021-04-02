@@ -13,6 +13,8 @@
             </if>
             <if test="scheduledDeparture != null">
                 and scheduled_departure >= #{scheduledDeparture}
+            </if>
+            <if test="scheduledDepartureEnd != null">
                 <![CDATA[ and scheduled_departure < #{scheduledDepartureEnd}]]>
             </if>
         </where>

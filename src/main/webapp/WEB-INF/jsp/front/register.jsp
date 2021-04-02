@@ -13,7 +13,7 @@
         <div class="full-layout-content">
             <div class="cnRegister-content">
                 <h1 class="cnRegister-titleP">
-                    加入七里翔俱乐部
+                    注册
                 </h1>
 
                 <div class="adultAdmission-content">

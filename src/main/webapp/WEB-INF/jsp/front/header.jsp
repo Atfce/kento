@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top">
+<link href="${ctx}/static/css/front/common.css" rel="stylesheet" type="text/css">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="${ctx}/index">订票系统</a>
 
     <div class="collapse navbar-collapse">

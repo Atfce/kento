@@ -7,7 +7,6 @@ import com.liangjian.ticket.entity.Flight;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -28,7 +27,8 @@ public class FlightDTO {
     private String departureCity;
     @NotBlank(message = "请输入到达城市")
     private String arrivalCity;
-    private String status;
+    @NotNull(message = "请选择航班状态")
+    private Integer status;
     @NotBlank(message = "请输入飞机型号")
     private String aircraft;
     @NotNull(message = "请输入座位数量")

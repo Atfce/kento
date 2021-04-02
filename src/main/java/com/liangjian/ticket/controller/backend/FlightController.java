@@ -1,19 +1,15 @@
 package com.liangjian.ticket.controller.backend;
 
-import java.sql.Timestamp;
 import java.util.Objects;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liangjian.ticket.dto.FlightDTO;
 import com.liangjian.ticket.entity.Flight;
 import com.liangjian.ticket.service.FlightService;
-import com.liangjian.ticket.utils.CommonUtil;
-import com.liangjian.ticket.vo.Const;
 import com.liangjian.ticket.vo.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,15 +36,7 @@ public class FlightController {
     public Page<Flight> getList(@RequestParam(defaultValue = "1") Integer start, @RequestParam(defaultValue = "15") Integer length,
                                 @RequestParam(defaultValue = "") String departureCity, @RequestParam(defaultValue = "") String arrivalCity,
                                 @RequestParam(defaultValue = "") String scheduledTime) {
-        Timestamp scheduledDeparture = null;
-        Timestamp scheduledDepartureEnd = null;
-        if (StringUtils.hasText(scheduledTime)) {
-            scheduledTime += " 00:00:00";
-            scheduledDeparture = CommonUtil.formatTimestamp(scheduledTime);
-            assert scheduledDeparture != null;
-            scheduledDepartureEnd = new Timestamp(scheduledDeparture.getTime() + 86400000);
-        }
-        return flightService.getFlightPage(start / length + 1, length, departureCity, arrivalCity, scheduledDeparture, scheduledDepartureEnd);
+        return flightService.getFlightPage(start / length + 1, length, departureCity, arrivalCity, scheduledTime);
     }
 
     @PostMapping("delete")

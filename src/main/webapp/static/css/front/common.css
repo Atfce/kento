@@ -1,0 +1,1603 @@
+@charset "utf-8";
+/* CSS Document */
+body{ margin:0 auto; width:100%; font:12px "微软雅黑","宋体"; background:#fff; color: #000; }
+ul,li,ol{ margin:0; padding:0; list-style:none;}
+a{ border:none;}
+a:hover{ border:none;}
+a:link,a:active,a:visited{ text-decoration:none; border:none;}
+h1,h2,h3,h4,h5,h6,h7,p{ margin:0; padding:0;}
+img{ border:none;}
+.clearfix:after {content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;}
+.clearfix {display: inline-block;}
+
+/* 购票流-公共 */
+.zls-common{
+    width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom:30px;
+}
+/* 购票流-导航条 */
+.zls-bar{
+    margin-top: 40px;
+}
+.zls-bar ul{
+    overflow: hidden;
+}
+.zls-bar li {
+    float: left;
+    width: 19.9%;
+}
+.zls-bar li div{
+    position: relative;
+    margin-right: 33px;
+    line-height: 36px;
+    height: 36px;
+    background: #e8ecef;
+    text-align: center;
+    color: #008acb;
+    font-size: 14px;
+}
+.zls-bar li i{
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+}
+.zls-bar li i.l{
+    border-left: 18px solid #fff;
+    left:0;
+}
+.zls-bar li i.r{
+    border-left: 18px solid #e8ecef;
+    right: -18px;
+}
+.zls-bar li.first i.l{
+    display: none;
+}
+.zls-bar li.first div{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.zls-bar li.current div{
+    background: #e7445a;
+    color: #fff;
+}
+.zls-bar li.current i.r{
+    border-left-color: #e7445a;
+}
+/* 购票流-航班选择-航班标题 */
+.zls-fltitle{
+    margin-top: 40px;
+    color: #fff;
+    background: #008acb;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 18px;
+    padding: 0 15px;
+    overflow: hidden;
+    line-height: 48px;
+}
+.zls-fltitle div {
+    float: left;
+}
+.zls-fltitle .psnnum{
+    float: right;
+    font-size: 16px;
+}
+.zls-fltitle .psnnum span {
+    padding-right: 5px;
+}
+.arrow{
+    width: 36px;
+    height: 2px;
+    background: #fff;
+    margin: 24px 8px 0 5px;
+    position: relative;
+}
+.arrow i{
+    position: absolute;
+    right: -3px;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid #fff;
+    border-top: 6px solid transparent;
+}
+/* 购票流-航班选择-最低价日历 */
+.zls-minprice {
+    margin-top: 20px;
+    border: 1px solid #d8dfe7;
+}
+.zls-sevenprice{
+    float: left;
+    height: 62px;
+}
+.zls-sevenprice > div, .zls-sevencon ul, .zls-sevencon li {
+    height: 100%;
+    float: left;
+}
+.zls-sevenl,.zls-sevenr{
+    width: 40px;
+    position: relative;
+    border-right: 1px solid #d8dfe7;
+    cursor: pointer;
+}
+.zls-sevenl i,.zls-sevenr i{
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.zls-sevenl i{
+    border-right: 17px solid #2E71A2;
+    margin: -17px 0 0 -9px;
+}
+.zls-sevenl.disable i{
+    border-right-color: #ccc;
+}
+.zls-sevenr.disable i{
+    border-left-color: #ccc;
+}
+.zls-sevenl i.after{
+    border-right-color: #fff;
+    margin-left: -8px;
+}
+.zls-sevenr i{
+    border-left: 17px solid #2E71A2;
+    margin: -17px 0 0 -8px;
+}
+.zls-sevenr i.after{
+    border-left-color: #fff;
+    margin-left: -9px;
+}
+.zls-sevencon li {
+    float: left;
+    border-right: 1px solid #d8dfe7;
+    text-align: center;
+    width: 118px;
+    cursor: pointer;
+}
+.zls-sevencon li div {
+    margin: 10px 0;
+    line-height: 16px;
+}
+.zls-sevencon li span{
+    padding-right: 1em;
+}
+.zls-sevencon li div.zls-price{
+    font-size: 16px;
+    color: #008acb;
+}
+.zls-sevenprice .disable{
+    cursor: not-allowed;
+}
+.zls-sevencon li.disable div{
+    color: #999;
+}
+.zls-sevencon li.current{
+    cursor: auto;
+    background: #008acb;
+}
+.zls-sevencon li.current div{
+    color: #fff;
+}
+.zls-monthprice{
+    float: right;
+    height: 22px;
+    text-align: center;
+    width: 105px;
+    padding-top: 40px;
+    line-height: 22px;
+    position: relative;
+    cursor: pointer;
+}
+.zls-monthprice i.monthicon{
+    position: absolute;
+    width: 32px;
+    height: 35px;
+    background: url(../images/flight.png) 0 0 no-repeat;
+    top: 50%;
+    left: 50%;
+    margin: -27px 0 0 -16px;
+}
+/* 购票流-航班选择-筛选与买贵 */
+.zls-filter-buy{
+    margin-top: 15px;
+    overflow: hidden;
+    line-height: 28px;
+}
+.zls-filter,.zls-filter div{
+    float: left;
+}
+.zls-filter-title{
+    font-weight: bold;
+}
+.zls-filter-con ul {
+    overflow: hidden;
+}
+.zls-filter-con li {
+    float: left;
+    margin-left: 25px;
+    padding-left: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.zls-filter-con li i {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    border: 1px solid #7fc4e5;
+    border-radius: 3px;
+    left: 0;
+    top: 50%;
+    margin-top: -8px;
+    background-color: #edf7fc;
+}
+.zls-filter-con li.check i {
+    background: url(../images/flight.png) -20px -181px no-repeat;
+}
+.zls-buy{
+    float: right;
+    position: relative;
+    padding-left: 36px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #008acb;
+    cursor: pointer;
+}
+.zls-buy i{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 25px;
+    height: 28px;
+    margin-top: -14px;
+    background: url(../images/flight.png) 0 -35px no-repeat;
+}
+.zls-buy a{
+    color: #008acb;
+}
+/* 购票流-航班选择-列表头 */
+.fligthL{
+    float: left;
+    width: 60%;
+}
+.fligthR{
+    float: right;
+    width: 40%;
+}
+.zls-flight-head {
+    overflow: hidden;
+    line-height: 20px;
+    border: 1px solid #dbeff9;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 15px;
+    padding-left: 18px;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+.zls-flight-head ul {
+    overflow: hidden;
+}
+.zls-flight-head ul li {
+    float: left;
+}
+.zls-headL li {
+    width: 32%;
+}
+.zls-headR li {
+    width: 24.9%;
+    text-align: center;
+}
+.zls-flight-head li span {
+    position: relative;
+    padding-right: 20px;
+    display: inline-block;
+    padding-left: 5px;
+}
+.orderClick{
+    cursor: pointer;
+}
+.zls-flight-head li.first span{
+    padding-left:20px;
+}
+.sequence {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    margin-top: -7px;
+}
+.sequence i {
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    cursor: pointer;
+}
+.sequence i.up {
+    border-bottom: 6px solid #b2dcef;
+}
+.sequence i.down {
+    border-top: 6px solid #b2dcef;
+    margin-top: 3px;
+}
+.sequence i.used {
+    border-bottom-color: #559dcc;
+    border-top-color: #559dcc;
+}
+/* 购票流-航班选择-航班列表 */
+.zls-flight {
+    margin-top: 20px;
+}
+ul.zls-flg-ui > li {
+    overflow: hidden;
+    border: 1px solid #dbeff9;
+    background: #f6fafc;
+    margin-bottom: 20px;
+}
+ul.zls-flg-ui .fligthL {
+    overflow: hidden;
+    padding-top: 25px;
+    min-height: 65px;
+}
+ul.zls-flg-ui .fligthL > div {
+    float: left;
+}
+.zls-flgno {
+    padding: 0 5px 0 54px;
+    line-height: 20px;
+    width:90px;
+}
+.zls-flgno-info {
+    position: relative;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+ul.zls-flg-ui .fligthR {
+    overflow: hidden;
+}
+.zls-flgno-info i,.trans-detail-flightno i{
+    width: 26px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: -36px;
+    background: url(../images/flight.png) 0 -196px no-repeat;
+}
+.zls-flgno-info span,.zls-flgplane{
+    color: #008acb;
+    cursor: pointer;
+    font-size: 12px;
+}
+.zls-flgno-info.zh .vr-icon{
+    display: inline-block;
+    width: 30px;
+    height: 39px;
+    background: url(../images/vr-icon-zh.png) no-repeat;
+    background-size: 30px 39px;
+    cursor: pointer;
+}
+.zls-flgno-info.en .vr-icon{
+    display: inline-block;
+    width: 30px;
+    height: 39px;
+    background: url(../images/vr-icon-en.png) no-repeat;
+    background-size: 30px 39px;
+    cursor: pointer;
+}
+.zls-flgtime {
+    font-size: 22px;
+    font-weight: bold;
+    width: 119px;
+    line-height: 24px;
+}
+.zls-flgtime-r {
+    text-align: right;
+}
+.zls-flplace {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+}
+.zls-flg-during {
+    padding: 0 10px;
+    width: 110px;
+    text-align: center;
+}
+.zls-trans {
+    padding-right: 9px;
+    color: #8298b3;
+    display: none;
+}
+.zls-flg-dir {
+    border-bottom: 2px solid #bcc9d7;
+    height: 4px;
+    position: relative;
+    margin-top: 10px;
+}
+.zls-flg-dir i {
+    position: absolute;
+    right: -3px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 12px solid #bcc9d7;
+    border-top: 6px solid transparent;
+}
+.zls-flg-time {
+    color: #8298b3;
+    padding-left: 15px;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 8px;
+}
+.zls-flg-time i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: url(../images/flight.png) -26px -68px no-repeat;
+    margin-top: -6px;
+}
+.zls-flg-dir .transicon {
+    position: absolute;
+    width: 50px;
+    height: 16px;
+    line-height: 16px;
+    top: -5px;
+    left: 50%;
+    margin-left: -30px;
+    border: 1px solid #bcc9d7;
+    background: #e8f4fa;
+    border-radius: 5px;
+    display: none;
+    color: #008acb;
+    cursor: pointer;
+}
+.zls-trans-info .zls-trans,.zls-trans-info .transicon{
+    display: block;
+}
+.zls-flgother > div {
+    float: left;
+    cursor: pointer;
+}
+.zls-setconpun ul {
+    overflow: hidden;
+    line-height: 18px;
+    border: 1px solid #e5004a;
+}
+.zls-setconpun li {
+    float: left;
+    padding: 0 5px;
+    background: #e5004a;
+    color: #fff;
+}
+.zls-setconpun li.pice {
+    color: #e5004a;
+    background: #fff;
+}
+.zls-meal {
+    width: 16px;
+    height: 16px;
+    background: url(../images/flight.png) 0 -65px no-repeat;
+    margin: 3px 0 0 5px;
+}
+ul.zls-flg-ui .fligthR {
+    overflow: hidden;
+}
+ul.zls-flg-ui .fligthR ul{
+    overflow: hidden;
+}
+ul.zls-flg-ui .fligthR li {
+    float: left;
+    padding: 57px 0 25px 0;
+    position: relative;
+    width: 24.7%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e5004a;
+    border-left: 1px solid #dbeff9;
+    line-height: 32px;
+    min-height: 32px;
+    cursor: pointer;
+}
+ul.zls-flg-ui .fligthR li.disabled{
+    cursor: auto;
+}
+ul.zls-flg-ui .fligthR li i {
+    width: 16px;
+    height: 16px;
+    background: url("../images/flight.png") 0 -160px no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 33px;
+}
+.zls-flgother {
+    margin-top: 20px;
+}
+.zls-cabin {
+    clear: both;
+    display: none;
+}
+.zls-cabin > ul > li {
+    margin: 0 20px;
+    border-bottom: 1px solid #dbeff9;
+    padding: 14px 0;
+}
+.cabin-info {
+    overflow: hidden;
+}
+.cabin-info > div {
+    float: left;
+}
+.cabin-name {
+    width: 120px;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 15px 0 7px;
+    margin: 10px 0;
+    position: relative;
+}
+div.zls-upcabin{
+    background: #e5004a;
+    color:#fff;
+}
+.zls-upcabin i{
+    display: block;
+    height: 0;
+    width: 0;
+    border-right: 15px #fff solid;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -15px;
+    border-top: 15px transparent solid;
+    border-bottom: 15px transparent solid;
+}
+.cabin-other {
+    margin: 12px 0;
+}
+.cabin-other ul {
+    overflow: hidden;
+}
+.cabin-other li {
+    float: left;
+    line-height: 20px;
+    padding: 0 10px;
+    border-right: 1px solid #666;
+}
+.cabin-other li.blue {
+    color: #008acb;
+    cursor: pointer;
+}
+.cabin-other li.zls-baggage {
+    border: 1px solid #008acb;
+    line-height: 18px;
+    margin-left: -1px;
+    color: #008acb;
+    padding: 0 5px 0 22px;
+    position: relative;
+    cursor: pointer;
+}
+.cabin-other li.zls-addshare{
+    border-right: none;
+    border-left: 1px solid #666;
+    margin-left: 10px;
+}
+.cabin-other li.zls-addshare span{
+    display: inline-block;
+    padding: 0 10px;
+    background: #008acb;
+    border-radius: 2px;
+    color: #fff;
+}
+li.zls-baggage i {
+    position: absolute;
+    width: 12px;
+    height: 16px;
+    background: url(../images/flight.png) -26px -51px no-repeat;
+    top: 1px;
+    left: 5px;
+}
+.cabin-info > div.cabin-price {
+    float: right;
+    margin: 7px 0;
+}
+.cabin-price-btn {
+    overflow: hidden;
+    position: relative;
+    padding-right: 2em;
+    line-height: 30px;
+}
+.cabin-price-over{
+    font-size: 18px;
+    color: #e5004a;
+    padding: 0 10px;
+}
+.cabin-price-btn > div {
+    float: right;
+}
+.cabin-btn {
+    background: #e5004a;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 0 10px;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+.procabin-btn{
+    background: #008acb;
+}
+.cabin-price-btn i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2.1em;
+    font-style: normal;
+    line-height: 15px;
+}
+.cabin-price-btn-en{
+    padding-right: 5em;
+}
+.cabin-price-btn-en i{
+    width: 5.1em;
+}
+.cabin-price-btn i span {
+    padding-right: 5px;
+    color: #e5004a;
+}
+.cabin-price-info {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e5004a;
+}
+.cabin-price-info span {
+    font-size: 12px;
+}
+.cabin-price-info span.cabin-offer{
+    font-size: 14px;
+}
+.cabin-price-info span.zls-upcabin-txt{
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 100;
+    color: #008acb;
+    border-bottom: 1px #008acb dotted;
+    cursor: pointer;
+}
+.cabin-price-btn .blue{
+    background: #008acb;
+}
+ul.zls-flg-ui > li.current{
+    background: #dbeff9;
+    box-shadow: 0 3px 15px #dbeff9;
+    border-color: #7fc4e5;
+}
+ul.zls-flg-ui > li.current .zls-cabin {
+    display: block;
+    background: #fff;
+}
+ul.zls-flg-ui > li.current .fligthR li{
+    border-left-color:#fff;
+}
+ul.zls-flg-ui > li.current .fligthR i{
+    width: 19px;
+    height: 18px;
+    margin-left: -9px;
+    background-position: 0 -177px;
+}
+ul.zls-flg-ui .fligthR li.current i{
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    background-position: -17px -159px;
+}
+ul.zls-flg-ui .fligthR li.current{
+    background: #fff;
+}
+/* change and refund */
+.ticket-nt{
+    border-top: #dbeff9 1px solid;
+    border-left: #dbeff9 1px solid;
+    margin-bottom:10px;
+}
+.ticket-nt td{
+    padding: 5px;
+    text-align: center;
+    border-bottom: #dbeff9 1px solid;
+    border-right: #dbeff9 1px solid;
+}
+.ticket-nt .ticket-blue{
+    background: #dbeff9;
+    line-height: 16px;
+    font-weight: bold;
+}
+.mileage{
+    padding:15px;
+    font-size:14px;
+}
+.mileage p{
+    font-size:12px;
+    color:#999;
+}
+.zls-addday{
+    color: #008acb;
+    font-weight: 100;
+    font-size: 12px;
+    vertical-align: top;
+    line-height: 12px;
+    cursor: pointer;
+}
+ul.zls-flg-ui .fligthR li.zls-sold-out{
+    font-size: 16px;
+    cursor: auto;
+}
+ul.zls-flg-ui .fligthR li i.zls-member-icon{
+    background-position: 0 -446px;
+    width: 51px;
+    height: 45px;
+    top: 0;
+    right: -1px;
+    left: auto;
+}
+ul.zls-flg-ui .fligthR li i.zls-preurl-icon{
+    left: 8px;
+    top: 0;
+    background-position: 0 -493px;
+    width: 30px;
+    height: 18px;
+}
+.cabin-other li.zls-setconpun{
+    border: none;
+    cursor: pointer;
+}
+.cabin-other li.zls-setconpun li{
+    border: none;
+    line-height: 18px;
+    padding: 0 5px;
+}
+.tooltip-content .zls-conpun-tips{
+    height:30px;
+}
+.zls-red{
+    color:#e5004a;
+}
+.cabin-oldprice-info{
+    font-size: 18px;
+    color: #909090;
+    margin: 0 10px;
+    text-decoration: line-through;
+}
+.cabin-oldprice-info span{
+    font-size: 12px;
+}
+.upCabinBlueTitle{
+    color: #008acb;
+}
+.wait{
+    background: #999;
+    cursor: not-allowed;
+}
+.checkedFlightCon{
+    overflow: hidden;
+    background: #f6fafc;
+    position: relative;
+}
+.checkedFlightCon > .fl{
+    width: 70%;
+    height: 100%;
+}
+.checkedFlightCon > .fr{
+    width: 29.9%;
+    background: #DBEFF9;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+.zls-checked-dep,.zls-checked-arr{
+    width: 25%;
+    float: left;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 48px 0;
+}
+.zls-checked-dep{
+    text-align: right;
+}
+.zls-checked-dep li.title,.zls-checked-arr li.title{
+    font-weight: bold;
+}
+.zls-checked-dep li.data,.zls-checked-arr li.data{
+    font-size: 12px;
+}
+.zls-checked-dep li.plane,.zls-checked-arr li.plane{
+    overflow: hidden;
+}
+.zls-checked-dir{
+    width: 20%;
+    float: left;
+    text-align: center;
+    line-height: 24px;
+    color: #8197B3;
+}
+.zls-checked-dir .arrow{
+    width: 110px;
+    margin: 83px auto 0;
+    background: #8197B3;
+}
+.zls-checked-dir .arrow i{
+    border-left-color: #8197B3;
+}
+.zls-checked-type{
+    width: 8%;
+    float: left;
+}
+.zls-checked-cabin{
+    font-size: 14px;
+    padding-top: 75px;
+    float: left;
+    width: 21.9%;
+    text-align: center;
+}
+.zls-checked-type div{
+    width: 38px;
+    height: 49px;
+    background: url(../images/flight.png) 0 -260px no-repeat;
+    line-height: 48px;
+    padding-right: 12px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+.zls-checked-change{
+    border-top: #DBEFF9 1px solid;
+    clear: both;
+    line-height: 52px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+.zls-checked-change a{
+    color: #0089CB;
+}
+.zls-checked-depplane,.zls-checked-arrplane{
+    float: right;
+    position: relative;
+    padding-left: 30px;
+}
+.zls-checked-arrplane{
+    float: left;
+    padding: 0 30px 0 0;
+}
+.zls-checked-depplane i,.zls-checked-arrplane i{
+    width:20px;
+    height:14px;
+    background: url(../images/flight.png) 0 -310px no-repeat;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -7px;
+}
+.zls-checked-arrplane i{
+    background-position:-21px -310px;
+    left:auto;
+    right:0;
+}
+.zls-details-list{
+    padding: 10px 20px;
+}
+.zls-details-title{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 32px;
+}
+.zls-checked-num{
+    padding: 5px 0;
+    border-bottom: #0089CB 1px dashed;
+    min-height: 104px;
+}
+.zls-checked-num li {
+    overflow: hidden;
+    line-height: 26px;
+}
+.zls-checked-onlynum li{
+    line-height: 32px;
+}
+.zls-checked-num a {
+    margin-left: 10px;
+    color: #656565;
+    border-bottom: #0089CB 1px dashed;
+}
+.zls-checked-num .fr {
+    font-size: 14px;
+}
+.zls-checked-count{
+    margin-top: 10px;
+    font-size: 14px;
+    overflow: hidden;
+}
+.zls-checked-count span{
+    font-size: 18px;
+    font-weight: bold;
+    color: #E50049;
+    float: right;
+}
+.zls-checked-count span i{
+    font-style: normal;
+    font-size: 12px;
+}
+.plane-img img{
+    width:100%;
+}
+.zls-trans-detail{
+    padding-left:26px;
+    position: relative;
+    font-size: 12px;
+}
+.zls-transflight-info li{
+    overflow:hidden;
+}
+.zls-transflight-info li div{
+    float:left;
+    padding: 0 10px;
+}
+.trans-detail-flightno i{
+    left:0;
+}
+.zls-trans-detail .zls-meal{
+    padding: 0;
+    border: 0;
+}
+.zls-tran-long{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 15px;
+}
+.long-border-b{
+    position: absolute;
+    z-index: 1;
+    height: 7px;
+    border-bottom: #008acb 1px dotted;
+    width: 100%;
+}
+.long-info{
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    background: #fff;
+    font-size: 12px;
+    color: #8298B3;
+}
+.long-info div {
+    float: left;
+    padding: 0 5px;
+}
+.long-info div.transicon{
+    border: #8298B3 1px solid;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+.zls-timeDuringFlight{
+    padding: 0 10px;
+}
+.zls-transflight-info li .zlsblod,.zls-timeDuringFlight .zlsblod{
+    font-weight: bold;
+}
+.long-info div.trans-city{
+    font-weight: bold;
+}
+.changeRefund-city {
+    line-height: 30px;
+    color: #008acb;
+}
+.zls-transflight-info{
+    padding-right: 105px;
+    position: relative;
+}
+.zls-transflight-info li.zlsstopNumber{
+    position: absolute;
+    top: 20%;
+    right: 0;
+    height: 60%;
+    border-left: #0089CB 1px solid;
+    width: 105px;
+    overflow: visible;
+}
+.zlsstopShow{
+    position: relative;
+    height: 100%;
+    float: none;
+    padding: 0;
+    width: 100%;
+}
+.zlsstopShow div{
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+}
+.zlsstopShow i{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: url("/B2C40/newTrips/static/main/images/flight.png") -33px 0 no-repeat #fff;
+    left: -3px;
+}
+.zlsstopShow i.top{
+    top: -2px;
+}
+.zlsstopShow i.bottom{
+    bottom: -2px;
+}
+/***动画***/
+.down.zls-action{
+    -webkit-animation: swingdown .75s linear 3;
+    -moz-animation: swingdown .2s linear 3;
+    -ms-animation: swingdown .2s linear 3;
+    -o-animation: swingdown .2s linear 3;
+    animation: swingdown .2s linear 3;
+}
+.up.zls-action{
+    -webkit-animation: swingup .75s linear 3;
+    -moz-animation: swingup .2s linear 3;
+    -ms-animation: swingup .2s linear 3;
+    -o-animation: swingup .2s linear 3;
+    animation: swingup .2s linear 3;
+}
+@keyframes swingdown{
+    0% { transform: translate(0,0); }
+    99% { transform: translate(0,5px); }
+    100% { transform: translate(0,0); }
+}
+@keyframes swingup{
+    0% { transform: translate(0,0); }
+    99% { transform: translate(0,-5px); }
+    100% { transform: translate(0,0); }
+}
+/***邻近机场***/
+.alertinfo-error{
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 20px 0;
+    text-align: center;
+}
+.alertinfo-error span{
+    padding: 5px 0 5px 30px;
+    color: #000000;
+    position: relative;
+}
+.alertinfo-error span i{
+    position: absolute;
+    left: 0;
+    width: 26px;
+    height: 26px;
+    top: 50%;
+    margin-top: -13px;
+    background: url("../images/flight.png") 0 -367px no-repeat;
+}
+.realertinfo-error{
+    margin:0;
+    padding-top: 0;
+}
+.realertinfo-error span{
+    padding-left:25px;
+}
+.realertinfo-error span i{
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background-position: 0 -401px;
+}
+.nearbyairport{
+    padding: 30px 0;
+}
+.nearbybox{
+    float: left;
+    width: 22.8%;
+    margin-right: 1.9%;
+    border: #4DC1FB 1px solid;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+}
+.nearbycity{
+    overflow: hidden;
+    background: #DBEFF9;
+}
+.nearbycity .fl{
+    width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+}
+.nearbycity .txtr{
+    text-align: right;
+}
+.nearbybw{
+    width: 11.9%;
+    float: left;
+    height: 24px;
+    margin: 0 4%;
+    border-bottom: solid 1px #BECDDC;
+    position: relative;
+}
+.nearbybw i{
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid #bcc9d7;
+    border-top: 4px solid transparent;
+}
+.nearbyarL{
+    width: 16px;
+    height: 11px;
+    background: url("../images/flight.png") -22px -407px no-repeat;
+    position: absolute;
+    bottom: 2px;
+    left: 4px;
+}
+.nearbydate{
+    margin: 0 10px;
+    border-bottom: #0089CB 1px dashed;
+    overflow: hidden;
+    padding: 0 10px;
+    text-align: left;
+    color: #999;
+}
+.nearbydate span{
+    padding-left: 5px;
+    color: #e5004a;
+    float: right;
+    font-size: 12px;
+}
+.nearbydate span strong{
+    font-size: 18px;
+    font-weight: 100;
+}
+.nearbydistance{
+    color: #999;
+}
+.nearbydistance .nr{
+    max-width: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 5px;
+}
+.nearbydistance .nb{
+    max-width: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 5px;
+}
+.nearbybox:hover{
+    border-color: #0089CB;
+    box-shadow: 0 5px 10px #C5EBFF;
+}
+.nearbybox:hover .nearbycity{
+    background: #C5EBFF;
+    color:#0089CB;
+}
+.nearbybox:hover .nearbydate,.nearbybox:hover .nearbydistance{
+    color:#000;
+}
+.minnearbybox{
+    margin: 20px auto;
+    padding: 15px 20px 8px;
+    border: #dbeff9 1px solid;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.minnearbybox:hover {
+    background: #F0FAFD;
+}
+.minnearbyname{
+    float: left;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-left: 28px;
+    color: #808080;
+    width: 15%;
+}
+.minnearbyicon{
+    position: absolute;
+    width: 24px;
+    height: 30px;
+    background: url("../images/flight.png") 0 -329px no-repeat;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+}
+.minnearbyairlines{
+    float: left;
+    width: 62%;
+}
+.minnearbydep,.minnearbyarr{
+    float: left;
+    text-align: left;
+    width: 38%;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.minnearbydep{
+    text-align: right;
+}
+.minneardistance{
+    font-size: 12px;
+    color: #ADABAB;
+    font-weight: 100;
+}
+.minnearbybet{
+    float: left;
+    width: 120px;
+    margin: 8px 1em 0;
+    border-top: 2px solid #c0cbd9;
+    overflow: visible;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+}
+.minnearbybet i{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 0 12px;
+    border-color: transparent transparent transparent #c0cbd9;
+    right: -4px;
+    top: -6px;
+}
+.minnearbybtn{
+    float: right;
+    width: 100px;
+    text-align: center;
+    height: 32px;
+    background: #EA2A39;
+    line-height: 32px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 4px;
+}
+.minnearbyprice{
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+    color: #e5004a;
+}
+.minnearbyprice span{
+    font-size: 12px;
+}
+.Enminnearbyname{
+    line-height: 20px;
+    font-size: 14px;
+}
+.tothetop {
+    position: fixed;
+    bottom: 113px;
+    left: 50%;
+    z-index: 19;
+    margin-left: 538px;
+    display: none;
+}
+.tothetop a {
+    display: block;
+    width: 38px;
+    height: 38px;
+    background-color: #ddd;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+}
+.tothetop a:hover {
+    background-color: #e2e2e2;
+}
+.tothetop a div {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.tothetop a .arrow {
+    width: 0;
+    height: 0;
+    top: -1px;
+    border: 9px solid transparent;
+    border-bottom-color: #aaa;
+    background: transparent;
+}
+.tothetop a .stick {
+    width: 8px;
+    height: 14px;
+    top: 15px;
+    border-radius: 1px;
+    background-color: #aaa;
+}
+.zls-scroll-action{
+    position: fixed;
+    top: -40px;
+    z-index: 2;
+    background: #fff;
+    width: 1024px;
+}
+.zls-scroll-space{
+    padding-top: 278px;
+}
+.zls-lessSeat{
+    position: absolute;
+    font-size: 12px;
+    line-height: 14px;
+    bottom: 10px;
+    width: 100%;
+    left: 0;
+}
+.zls-lessSeat span{
+    border: #e5004a 1px solid;
+    border-radius: 2px;
+    padding: 0 2px;
+    font-weight: 100;
+}
+/***预约***/
+.tip-reservation{
+    overflow: hidden;
+}
+.zls-flightInfoShow .flight-booking-entry {
+    margin: 30px auto;
+    width: 310px;
+}
+.zls-flightInfoShow .minPrice-calendar-box .flight-booking-entry {
+    float: right;
+    margin: 5px 0 0;
+}
+.flight-booking-entry .pre-booking-icon {
+    width: 48px;
+    height: 36px;
+    background: red;
+    float: left;
+    background: url("//www.csair.com/cn/images/common_a.png") no-repeat;
+    background-position: -333px -1005px;
+}
+.flight-booking-entry span {
+    color: black;
+    float: left;
+    line-height: 36px;
+    font-size: 13px;
+    margin-left: 5px;
+}
+.flight-booking-entry .booking-href {
+    width: 17px;
+    height: 16px;
+    background: url("//www.csair.com/cn/images/common_a.png") no-repeat;
+    background-position: -365px -695px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.flight-booking-entry a {
+    color: #0e93ce;
+    font-size: 13px;
+    line-height: 36px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.tooltip-content .tipsCon p{
+    font-size:12px;
+}
+
+.pxkTransNote {
+    margin: 20px auto;
+    padding: 15px 20px 8px;
+    border: #dbeff9 1px solid;
+    border-radius: 2px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+}
+.pxkTransNote .flightTap-tip-icon{
+    margin: 0 6px;
+    cursor: auto;
+}
+/***by zsl at 2019-07-22***/
+.addshareicon{
+    border: #008acb 1px solid;
+    border-radius: 2px;
+    line-height: 18px;
+}
+li.zls-addshare .addshareicon span{
+    border-radius: 0;
+}
+li.zls-addshare .addshareicon span.pro{
+    background: transparent;
+    color: #008acb;
+    border-left: #008acb 1px solid;
+}
+.procabin-btn.wait{
+    background: #008acb;
+    cursor: pointer;
+}
+.pro-triangle{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ebf9ff;
+    position: absolute;
+    right: 86px;
+    top: -10px;
+}
+.zls-cabin > ul > li.zls-pro-cabin{
+    position: relative;
+    background: #ebf9ff;
+    padding: 14px 20px;
+    margin: 0;
+}
+
+/** 一市多场城市筛选  **/
+.AirportList {
+    width: 150px;
+    background: #f6fafd;
+    border: 2px solid #8097b6;
+    font-size: 14px;
+    /*color: #8297a8;*/
+    overflow: hidden;
+    z-index: 10000;
+    position: absolute;
+    margin-left: 25px;
+}
+
+.AirportList > ul > li{
+    margin-left: 5px;
+}
+.AirportList > ul > li.disable {
+    pointer-events: none;
+    color: gray;
+}
+.depHide {
+    display: none;
+}
+.arrHide {
+    display: none;
+}
+/** 加享规则展示  **/
+.pg-tip-xproductRule.loading{
+    color:#909090;
+    border:1px solid #909090!important;
+    cursor:not-allowed;
+    background:url(../images/loading.gif) no-repeat center
+}
+.point {
+    cursor:pointer;
+}
+
+/** 货架前置样式 **/
+.xproducticon{
+    line-height: 18px;
+    font-size: 14px;
+
+}
+.xproducticonTip{
+    margin-top: 10px;
+}
+.xproducticon .logo{
+    border: #008acb 1px solid;
+    border-radius: 7px;
+    background: #008acb;
+    color: white;
+    padding: 0 6px;
+}
+.xproducticon .pro{
+    margin-left: 20px;
+}
+.cabin-other .origin{
+    font-size: 16px;
+    color: black;
+}
+.cabin-other .productname{
+    font-size: 16px;
+    color: #008acb;
+}
+.xproductText{
+    margin-top: 10px;
+    line-height: 18px;
+    font-size: 14px;
+    margin-left: 140px;
+}
+.xproductText span{
+    margin-left: 20px;
+}
+
+.xproductText .first{
+    margin-left: 0;
+}
+.xproductText .marking_logo{
+    background: url(../images/marking_logo.png) no-repeat 0px 2px;
+    padding-left: 20px;
+}
+
+.mealInfo {
+    font-size: 14px;
+    margin: 5px 10px;
+}
+
+.mealInfo p{
+    font-size: 12px;
+    line-height: 20px;
+}
+.mealInfo p span{
+    color: red;
+}
+.fl-tip-name {
+    width: 100%;
+    background: white;
+    padding-bottom: 10px;
+}
+.fl-tip-name .fname-tabs-title {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #d6dfe7;
+    line-height: 38px;
+}
+
+.fl-tip-name .fname-tabs-title  li {
+    list-style: none;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 100%;
+}
+.fl-tip-name .fname-tabs-title  .current {
+    border-bottom: 3px solid #008acb;
+    color: #008acb;
+}
+.fl-tip-name .fname-tip-content {
+    display: block;
+    margin-top: 10px;
+    padding:10px;
+}
+.fname-tip-content{
+    display: none;
+}
+.fname-tip-container .current{
+    display: block;
+}
+.mileage p a{
+    color: #008acb;
+    display: block;
+}
