@@ -19,10 +19,10 @@ public class Flight {
     private Integer id;
     @NotBlank(message = "请输入航班编号")
     private String flightNo;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @NotBlank(message = "请输入出发时间")
     private Timestamp scheduledDeparture;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @NotBlank(message = "请输入到达时间")
     private Timestamp scheduledArrival;
     @NotBlank(message = "请输入出发城市")

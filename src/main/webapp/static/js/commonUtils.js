@@ -99,3 +99,31 @@ function GlobalAjaxErrorFunction(jqXHR) {
         }
     }, HIDE_HANDLING_DIALOG_TIME);
 }
+
+//设置datatable button的默认样式
+// $.fn.dataTable.Buttons.defaults.dom.button.className = "btn btn-primary btn-sm";
+// $.fn.dataTable.Buttons.defaults.dom.container.className = "dt-buttons";
+$.fn.dataTableWithDefault = function (settings) {
+
+    var defaultSettings = {
+        'dom': '<"row"<"col-sm-6"><"col-sm-6">>' + '<"row"<"col-sm-12"tr>>' + '<"row"<"col-sm-5"l><"col-sm-7"p>>',
+        'stateSave': true,
+        "pageLength": 15,
+        "lengthMenu": [[15, 25, 50], [15, 25, 50]],
+        'language': {
+            'emptyTable': 'No data',
+            'lengthMenu': '_MENU_',
+            'paginate': {
+                'next': ' > ',
+                'previous': ' < '
+            }
+        }
+    };
+
+    $.fn.dataTable.ext.errMode = 'none';
+    this.on('error.dt', function (e, settings, techNote, message) {
+        alert("获取数据失败！")
+    });
+
+    return this.dataTable($.extend(defaultSettings, settings));
+};

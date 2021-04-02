@@ -2,5 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.liangjian.ticket.mapper.FlightMapper">
-
+    <select id="getFlights" resultType="com.liangjian.ticket.entity.Flight">
+        SELECT * FROM flight
+        <where>
+            <if test="departureCity != null and departureCity != ''">
+                and departure_city = #{departureCity}
+            </if>
+            <if test="arrivalCity != null and arrivalCity != ''">
+                and arrival_city = #{arrivalCity}
+            </if>
+            <if test="scheduledDeparture != null">
+                and scheduled_departure >= #{scheduledDeparture}
+                <![CDATA[ and scheduled_departure < #{scheduledDepartureEnd}]]>
+            </if>
+        </where>
+    </select>
 </mapper>

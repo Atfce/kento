@@ -1,5 +1,10 @@
 package com.liangjian.ticket.utils;
 
+import com.liangjian.ticket.vo.Const;
+
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.regex.Pattern;
 
@@ -18,7 +23,8 @@ public class CommonUtil {
         }
         return rs.toString();
     }
-    public static String getRandomStr(int bit){
+
+    public static String getRandomStr(int bit) {
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
@@ -27,6 +33,15 @@ public class CommonUtil {
             sb.append(str.charAt(number));
         }
         return sb.toString();
+    }
+
+    public static Timestamp formatTimestamp(String time) {
+        try {
+            return new Timestamp(new SimpleDateFormat(Const.CONFIG_DATE_FORMAT).parse(time).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

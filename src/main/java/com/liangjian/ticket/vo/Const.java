@@ -5,6 +5,8 @@ public class Const {
     public static final String TEL_EXPIRE_CODE__KEY = "tel_code_expire:";
     public static final String BACKEND_USER = "backend_user";
 
+    public static String CONFIG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
 
     public static final String FLIGHT_STATUS_ONSALE = "售票中";
     public static final String FLIGHT_STATUS_OFFSALE = "停止售票";

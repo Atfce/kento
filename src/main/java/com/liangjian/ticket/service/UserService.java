@@ -1,5 +1,6 @@
 package com.liangjian.ticket.service;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangjian.ticket.dto.UserDTO;
 import com.liangjian.ticket.entity.User;
 import com.liangjian.ticket.mapper.UserMapper;
@@ -11,18 +12,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Objects;
 
 @Service
 @Transactional
-public class UserService {
-    @Resource
-    private UserMapper userMapper;
-
+public class UserService extends ServiceImpl<UserMapper, User> {
     public Result login(HttpSession session, String tel, String password) {
-        User user = userMapper.getUserByTel(tel);
+        User user = baseMapper.getUserByTel(tel);
         if (Objects.isNull(user)) {
             return Result.failed("该账号不存在！");
         }
@@ -52,7 +49,7 @@ public class UserService {
         session.removeAttribute(Const.TEL_CODE_KEY + userDTO.getTel());
 
         String tel = userDTO.getTel();
-        if (!Objects.isNull(userMapper.getUserByTel(tel))) {
+        if (!Objects.isNull(baseMapper.getUserByTel(tel))) {
             return Result.failed("该手机号已经注册账户！");
         }
 
@@ -65,7 +62,7 @@ public class UserService {
         user.setLastName(userDTO.getLastName());
         user.setFirstName(userDTO.getFirstName());
         user.setGender(userDTO.getGender());
-        userMapper.insert(user);
+        baseMapper.insert(user);
         return Result.ok();
     }
 }
