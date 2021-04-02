@@ -1,6 +1,5 @@
 package com.liangjian.ticket.service;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liangjian.ticket.dto.UserDTO;
 import com.liangjian.ticket.entity.User;
 import com.liangjian.ticket.mapper.UserMapper;
@@ -14,7 +13,6 @@ import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 import java.util.Objects;
 
 @Service

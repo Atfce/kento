@@ -6,7 +6,7 @@
 <c:set var="path" value="${path}"/>
 <%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <a class="navbar-brand" href="${ctx}/backend/home">管理后台</a>
 
     <div class="collapse navbar-collapse">
