@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.liangjian.ticket.mapper.TicketMapper">
+    <resultMap id="ticketMap" type="com.liangjian.ticket.entity.Ticket">
+        <id column="t_id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="pay_time" property="payTime"/>
+        <result column="finished_time" property="finishedTime"/>
+        <result column="t_status" property="status"/>
+        <result column="flight_id" property="flightId"/>
+        <result column="cost" property="cost"/>
+        <result column="traveler_name" property="travelerName"/>
+        <result column="id_card" property="idCard"/>
+        <result column="tel" property="tel"/>
+
+        <association property="flight" javaType="com.liangjian.ticket.entity.Flight">
+            <id column="f_id" property="id"/>
+            <result column="flight_no" property="flightNo"/>
+            <result column="scheduled_departure" property="scheduledDeparture"/>
+            <result column="scheduled_arrival" property="scheduledArrival"/>
+            <result column="departure_city" property="departureCity"/>
+            <result column="arrival_city" property="arrivalCity"/>
+            <result column="f_status" property="status"/>
+            <result column="aircraft" property="aircraft"/>
+            <result column="seat_total" property="seatTotal"/>
+            <result column="seat_empty" property="seatEmpty"/>
+            <result column="amount" property="amount"/>
+        </association>
+    </resultMap>
+
+    <select id="getTicketWithFlight" resultMap="ticketMap">
+        SELECT t.id t_id, t.user_id, t.create_time, t.pay_time, t.finished_time, t.status t_status, t.flight_id,
+         t.cost, t.traveler_name, t.id_card, t.tel, f.id f_id, f.flight_no, f.scheduled_departure, f.scheduled_arrival,
+         f.departure_city, f.arrival_city, f.status f_status, f.aircraft, f.seat_total, f.seat_empty, f.amount
+          FROM ticket t LEFT JOIN flight f ON t.flight_id = f.id WHERE t.id = #{id}
+    </select>
+
+    <update id="updateStatus">
+        UPDATE ticket SET status = #{status} WHERE id = #{id}
+    </update>
+</mapper>

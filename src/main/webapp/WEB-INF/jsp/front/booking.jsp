@@ -6,6 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
+<h5 class="mt-3" style="text-align: center">创建订单</h5>
 <div class="row mt-4">
     <div class="offset-3 col-md-6">
         <div class="card" style="width: 100%">
@@ -40,7 +41,7 @@
     </div>
 
     <div class="offset-8 mt-3">
-        <button type="button" class="btn btn-primary">提交订单</button>
+        <button type="button" class="btn btn-primary" id="submit">提交订单</button>
     </div>
 </div>
 
@@ -59,6 +60,18 @@
                 })
             })
         }
+
+        $("#submit").unbind().click(function () {
+            var ticket = {
+                "flightId": flightId,
+                "travelerName": $("#name").val(),
+                "idCard": $("#idCard").val().trim(),
+                "tel": $("#tel").val().trim()
+            };
+            $.postJsonWithDialog("${ctx}/booking/submit_ticket", JSON.stringify(ticket), function (data) {
+                window.location.href = "${ctx}/booking/pay?ticketId=" + data.ticketId;
+            })
+        })
     })
 </script>
 </body>

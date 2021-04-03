@@ -13,7 +13,6 @@ import java.sql.Timestamp;
 
 @Data
 public class FlightDTO {
-    @TableId(type = IdType.AUTO)
     private Integer id;
     @NotBlank(message = "请输入航班编号")
     private String flightNo;

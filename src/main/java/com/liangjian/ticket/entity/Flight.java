@@ -22,7 +22,7 @@ public class Flight {
     private Timestamp scheduledArrival;
     private String departureCity;
     private String arrivalCity;
-    private Integer status;
+    private Integer status; //0售票中 1停止售票 2检票中 3飞行中 4已完成 -1延误 -2取消
     private String aircraft;
     private Integer seatTotal;
     private Integer seatEmpty;

@@ -12,4 +12,6 @@ import java.sql.Timestamp;
 @Mapper
 public interface FlightMapper extends BaseMapper<Flight> {
     Page<Flight> getFlights(Page<Flight> page, String departureCity, String arrivalCity, Timestamp scheduledDeparture, Timestamp scheduledDepartureEnd);
+
+    void decrease(Integer id, Integer quantity);
 }

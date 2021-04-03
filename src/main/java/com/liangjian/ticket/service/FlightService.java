@@ -48,4 +48,8 @@ public class FlightService extends ServiceImpl<FlightMapper, Flight> {
         Page<Flight> page = new Page<>(current, size);
         return baseMapper.getFlights(page, departureCity, arrivalCity, scheduledDeparture, scheduledDepartureEnd);
     }
+
+    public void decrease(Integer id, Integer quantity) {
+        baseMapper.decrease(id, quantity);
+    }
 }

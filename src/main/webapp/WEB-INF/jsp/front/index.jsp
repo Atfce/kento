@@ -161,12 +161,16 @@
         });
         var draw = 1;
         var dt = null;
-        var queryUrl = "${ctx}/get_flight_list?departureCity=" + getQueryVariable("departureCity")
-            + "&arrivalCity=" + getQueryVariable("arrivalCity")
-            + "&scheduledTime=" + getQueryVariable("scheduledTime");
-        $("#departureCity").val(decodeURI(getQueryVariable("departureCity")));
-        $("#arrivalCity").val(decodeURI(getQueryVariable("arrivalCity")));
-        $("#scheduledTime").val(decodeURI(getQueryVariable("scheduledTime")));
+        var departureCity = getQueryVariable("departureCity") ? getQueryVariable("departureCity") : "";
+        var arrivalCity = getQueryVariable("arrivalCity") ? getQueryVariable("arrivalCity") : "";
+        var scheduledTime = getQueryVariable("scheduledTime") ? getQueryVariable("scheduledTime") : "";
+
+        var queryUrl = "${ctx}/get_flight_list?departureCity=" + departureCity
+            + "&arrivalCity=" + arrivalCity
+            + "&scheduledTime=" + scheduledTime;
+        $("#departureCity").val(decodeURI(departureCity));
+        $("#arrivalCity").val(decodeURI(arrivalCity));
+        $("#scheduledTime").val(decodeURI(scheduledTime));
 
         dt = $("#datatable").dataTableWithDefault(
             {

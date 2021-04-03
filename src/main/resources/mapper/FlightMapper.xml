@@ -19,4 +19,8 @@
             </if>
         </where>
     </select>
+    
+    <update id="decrease">
+        UPDATE flight SET seat_empty = seat_empty - #{quantity} WHERE id = #{id}
+    </update>
 </mapper>

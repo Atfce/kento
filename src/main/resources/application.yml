@@ -3,6 +3,8 @@ debug: true
 server:
   port: 12345
   servlet:
+    session:
+      timeout: 86400
     context-path: /ticket
     jsp:
       init-parameters:
