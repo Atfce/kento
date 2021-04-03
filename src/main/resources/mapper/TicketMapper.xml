@@ -37,6 +37,14 @@
           FROM ticket t LEFT JOIN flight f ON t.flight_id = f.id WHERE t.id = #{id}
     </select>
 
+    <update id="updateStatusAndPayTime">
+        UPDATE ticket SET status = #{status}, pay_time = #{payTime} WHERE id = #{id}
+    </update>
+
+    <select id="getExpireTickets" resultType="com.liangjian.ticket.entity.Ticket">
+        <![CDATA[ SELECT * FROM ticket WHERE create_time < #{expireTime} and status = 0]]>
+    </select>
+
     <update id="updateStatus">
         UPDATE ticket SET status = #{status} WHERE id = #{id}
     </update>

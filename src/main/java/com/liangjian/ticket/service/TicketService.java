@@ -5,17 +5,23 @@ import com.liangjian.ticket.dto.TicketDTO;
 import com.liangjian.ticket.entity.Flight;
 import com.liangjian.ticket.entity.Ticket;
 import com.liangjian.ticket.entity.User;
+import com.liangjian.ticket.mapper.FlightMapper;
 import com.liangjian.ticket.mapper.TicketMapper;
 import com.liangjian.ticket.vo.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
 
 @Service
 @Transactional
 public class TicketService extends ServiceImpl<TicketMapper, Ticket> {
+    @Autowired
+    private FlightMapper flightMapper;
+
     public String submitTicket(TicketDTO ticketDTO, Flight flight, User user) {
         if (ticketDTO.getTravelerName().equals(user.getLastName() + user.getFirstName())
                 && ticketDTO.getIdCard().equals(user.getIdCard())) {
@@ -50,20 +56,28 @@ public class TicketService extends ServiceImpl<TicketMapper, Ticket> {
         if (!user.getId().equals(ticket.getUserId())) {
             return Result.failed("您无权支付该订单！");
         }
-        long currentTime = System.currentTimeMillis() / 1000L;
-        long expireTime = ticket.getCreateTime().getTime() / 1000L + 60 * 15;
+        long currentTime = System.currentTimeMillis();
+        long expireTime = ticket.getCreateTime().getTime() + 60000 * 15;
         if (currentTime > expireTime) {
             return Result.failed("订单已失效！请重新预订！");
         }
-        if (ticket.getFlight().getScheduledDeparture().getTime() / 1000L < currentTime) {
+        if (ticket.getFlight().getScheduledDeparture().getTime() < currentTime) {
             return Result.failed("该航班已起飞！");
         }
         if (ticket.getFlight().getStatus() != 0) {
             return Result.failed("该航班不在售票状态内！");
         }
 
-        ticket.setPayTime(new Timestamp(currentTime));
-        baseMapper.updateStatus(id, 1);
+        //这里没用JsonFormat  需要+8小时  否则会有时区时间问题
+        baseMapper.updateStatusAndPayTime(id, 1, new Timestamp(currentTime));
         return Result.ok();
+    }
+
+    public void updateExpireTicketsStatus(Timestamp expireTime) {
+        List<Ticket> tickets = baseMapper.getExpireTickets(expireTime);
+        for (Ticket ticket : tickets) {
+            baseMapper.updateStatus(ticket.getId(), -1);
+            flightMapper.increase(ticket.getFlightId(), 1);
+        }
     }
 }

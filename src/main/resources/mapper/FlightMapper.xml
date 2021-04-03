@@ -23,4 +23,8 @@
     <update id="decrease">
         UPDATE flight SET seat_empty = seat_empty - #{quantity} WHERE id = #{id}
     </update>
+
+    <update id="increase">
+        UPDATE flight SET seat_empty = seat_empty + #{quantity} WHERE id = #{id}
+    </update>
 </mapper>

@@ -75,7 +75,7 @@
                 "ticketId": "${ticket.id}"
             }, function (data) {
                 alert("支付订单成功！");
-                <%--window.location.href = "${ctx}/index";--%>
+                window.location.href = "${ctx}/index";
             })
         })
     })
