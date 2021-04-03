@@ -7,18 +7,18 @@
 <body>
 <%@include file="header.jsp" %>
 <form style="margin-top: 50px">
-    <div class="form-row">
+    <div class="row" action="${ctx}/index" method="get">
         <div class="offset-2 form-group col-md-2">
-            <input type="text" class="form-control" id="departureCity" placeholder="请输入出发城市" value="广州">
+            <input type="text" class="form-control" name="departureCity" id="departureCity" placeholder="请输入出发城市" value="广州">
         </div>
         <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="arrivalCity" placeholder="请输入到达城市" value="湛江">
+            <input type="text" class="form-control" name="arrivalCity" id="arrivalCity" placeholder="请输入到达城市" value="湛江">
         </div>
         <div class="form-group col-md-2">
-            <input autocomplete="off" type="text" class="form-control" value="2021-04-03" id="scheduledTime" placeholder="请输入出发时间">
+            <input autocomplete="off" type="text" name="scheduledTime" class="form-control" value="2021-04-03" id="scheduledTime" placeholder="请输入出发时间">
         </div>
         <div class="col-md-3">
-            <button type="button" class="btn btn-primary" id="queryFlight">查询</button>
+            <button type="submit" class="btn btn-primary" id="queryFlight">查询</button>
         </div>
     </div>
 </form>
@@ -161,13 +161,20 @@
         });
         var draw = 1;
         var dt = null;
+        var queryUrl = "${ctx}/get_flight_list?departureCity=" + getQueryVariable("departureCity")
+            + "&arrivalCity=" + getQueryVariable("arrivalCity")
+            + "&scheduledTime=" + getQueryVariable("scheduledTime");
+        $("#departureCity").val(decodeURI(getQueryVariable("departureCity")));
+        $("#arrivalCity").val(decodeURI(getQueryVariable("arrivalCity")));
+        $("#scheduledTime").val(decodeURI(getQueryVariable("scheduledTime")));
+
         dt = $("#datatable").dataTableWithDefault(
             {
                 ordering: false,
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "${ctx}/get_flight_list?departureCity",
+                    url: queryUrl,
                     dataSrc: function (json) {
                         if (json.hasOwnProperty('code') && json.code == -1) {
                             alert(json.msg);
@@ -199,12 +206,12 @@
                 ]
             }
         );
-        $("#queryFlight").click(function () {
-            var queryUrl = "${ctx}/get_flight_list?departureCity=" + $("#departureCity").val().trim()
-                + "&arrivalCity=" + $("#arrivalCity").val().trim()
-                + "&scheduledTime=" + $("#scheduledTime").val().trim();
-            dt.api().ajax.url(queryUrl).load();
-        });
+        <%--$("#queryFlight").click(function () {--%>
+        <%--    var queryUrl = "${ctx}/get_flight_list?departureCity=" + $("#departureCity").val().trim()--%>
+        <%--        + "&arrivalCity=" + $("#arrivalCity").val().trim()--%>
+        <%--        + "&scheduledTime=" + $("#scheduledTime").val().trim();--%>
+        <%--    dt.api().ajax.url(queryUrl).load();--%>
+        <%--});--%>
     });
 
     function onBuy(id) {
@@ -212,6 +219,7 @@
             alert("您尚未登录！请先登录后再进行选购！");
             return;
         </c:if>
+        window.location.href = "${ctx}/booking?flightId=" + id;
     }
 
     function onDetail(id) {

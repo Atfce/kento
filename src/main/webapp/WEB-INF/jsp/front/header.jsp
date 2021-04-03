@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String path = request.getRequestURI();
+    pageContext.setAttribute("path", path);
+%>
+<c:set var="path" value="${path}"/>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <link href="${ctx}/static/css/front/common.css" rel="stylesheet" type="text/css">
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="${ctx}/index">订票系统</a>
 
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item
+                <c:if test="${fn:contains(path,'index')}">
+                    active
+                </c:if>">
                 <a class="nav-link" href="${ctx}/index">首页</a>
             </li>
             <li class="nav-item">

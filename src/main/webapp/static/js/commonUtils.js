@@ -23,7 +23,6 @@ $.getWithCallback = function (url, callback) {
     $.ajax({
         type: 'GET',
         url: url,
-        dataType: "json",
         success: GlobalCallbackWrapper(callback),
         error: GlobalAjaxErrorFunction
     });
