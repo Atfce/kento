@@ -9,4 +9,22 @@
     <select id="getUserByTel" resultType="com.liangjian.ticket.entity.User">
         SELECT * FROM user WHERE tel = #{tel}
     </select>
+
+    <select id="getUsersByCondition" resultType="com.liangjian.ticket.entity.User">
+        SELECT * FROM user
+        <where>
+            <if test="tel != null and tel != ''">
+                and tel = #{tel}
+            </if>
+            <if test="lastName != null and lastName != ''">
+                and last_name = #{lastName}
+            </if>
+            <if test="firstName != null and firstName != ''">
+                and first_name = #{firstName}
+            </if>
+            <if test="idCard != null and idCard != ''">
+                and id_card = #{idCard}
+            </if>
+        </where>
+    </select>
 </mapper>

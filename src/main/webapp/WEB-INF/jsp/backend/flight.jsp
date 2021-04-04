@@ -96,7 +96,7 @@
                     <div class="form-group">
                         <label>航班状态</label>
                         <div style="width: 100%">
-                            <select name="status" style="width: 100%">
+                            <select name="status" class="form-control">
                                 <option value="0">售票中</option>
                                 <option value="1">停止售票</option>
                                 <option value="2">检票中</option>

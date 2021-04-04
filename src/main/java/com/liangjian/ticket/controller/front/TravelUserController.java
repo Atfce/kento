@@ -31,21 +31,25 @@ public class TravelUserController {
 
     @PostMapping("change_user_info")
     @ResponseBody
-    public Result changeUserInfo(@RequestParam String lastName, @RequestParam String firstName, @RequestParam String idCard) {
+    public Result changeUserInfo(@RequestParam String lastName, @RequestParam String firstName, @RequestParam String idCard,
+                                 @RequestParam Byte gender, @RequestParam String password) {
         if (!StringUtils.hasText(lastName)) {
-            return Result.failed("请输入中文姓！");
+            return Result.failed("请输入姓氏！");
         }
         if (!StringUtils.hasText(firstName)) {
-            return Result.failed("请输入中文名！");
+            return Result.failed("请输入名字！");
         }
         if (!StringUtils.hasText(idCard)) {
             return Result.failed("请输入身份证号码！");
+        }
+        if (Objects.isNull(gender)) {
+            return Result.failed("请选择性别！");
         }
         User user = (User) session.getAttribute("user");
         if (Objects.isNull(user)) {
             return Result.failed("请先登录！");
         }
-        userService.changeUserInfo(user.getId(), lastName, firstName, idCard);
+        userService.changeUserInfo(user.getId(), lastName, firstName, idCard, gender, password);
         session.setAttribute("user", userService.getById(user.getId()));
         return Result.ok();
     }

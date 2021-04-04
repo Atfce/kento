@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-<%@include file="../TicketFlightDetail.jsp" %>
+<%@include file="../ticket_flight_detail.jsp" %>
 
 <h5 class="mt-3" style="text-align: center">个人中心</h5>
 <div class="row mt-5">
@@ -26,11 +26,16 @@
                     <div class="tab-pane fade show active mt-4" id="v-pills-user" role="tabpanel" aria-labelledby="finished-ticket-tab">
                         <div>
                             <div class="form-group">
-                                <label>中文姓</label>
+                                <label>手机号码</label>
+                                <input type="text" class="form-control" id="tel" value="${user.tel}" disabled>
+                                <small class="form-text text-muted">手机号码作为登录号，不能修改</small>
+                            </div>
+                            <div class="form-group">
+                                <label>姓氏</label>
                                 <input type="text" class="form-control" id="lastName" value="${user.lastName}" placeholder="请输入您的中文姓">
                             </div>
                             <div class="form-group">
-                                <label>中文名</label>
+                                <label>名字</label>
                                 <input type="text" class="form-control" id="firstName" value="${user.firstName}" placeholder="请输入您的中文名">
                             </div>
                             <div class="form-group">
@@ -38,9 +43,15 @@
                                 <input type="text" class="form-control" id="idCard" value="${user.idCard}" placeholder="请输入您的身份证号码">
                             </div>
                             <div class="form-group">
-                                <label>手机号码</label>
-                                <input type="text" class="form-control" id="tel" value="${user.tel}" disabled>
-                                <small class="form-text text-muted">手机号码作为登录号，不能修改</small>
+                                <label>性别</label>
+                                <select class="form-control" id="gender" value="${user.gender}">
+                                    <option value="1">男</option>
+                                    <option value="0">女</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>密码</label>
+                                <input type="text" class="form-control" id="password" placeholder="留空则表示不修改密码">
                             </div>
                             <div style="text-align: center">
                                 <button type="button" class="btn btn-primary" id="changeUserInfoBtn">
@@ -113,7 +124,9 @@
             $.postWithDialog("${ctx}/user/change_user_info", {
                 "lastName": $("#lastName").val().trim(),
                 "firstName": $("#firstName").val().trim(),
-                "idCard": $("#idCard").val().trim()
+                "idCard": $("#idCard").val().trim(),
+                "gender": $("#gender").val().trim(),
+                "password": $("#password").val().trim(),
             }, function (data) {
                 alert("修改成功");
                 window.location.reload();

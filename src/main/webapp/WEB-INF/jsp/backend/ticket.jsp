@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-<%@include file="../TicketFlightDetail.jsp" %>
+<%@include file="../ticket_flight_detail.jsp" %>
 
 <form style="margin-top: 50px">
     <div class="form-row">
@@ -18,7 +18,7 @@
                 <input type="text" class="form-control" id="tel" name="tel" placeholder="请输入游客手机号">
             </div>
             <div class="form-group col-md-2">
-                <select name="statusStr" id="statusStr" style="height: 100%; width: 200px">
+                <select class="form-control" name="statusStr" id="statusStr">
                     <option value="all">全部</option>
                     <option value="1">待出行</option>
                     <option value="2">已完成</option>

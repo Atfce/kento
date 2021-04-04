@@ -18,9 +18,6 @@
                 </c:if>">
                 <a class="nav-link" href="${ctx}/index">首页</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">首页</a>
-            </li>
         </ul>
 
         <ul class="navbar-nav">

@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liangjian.ticket.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
-    List<User> getUsers(Page<User> page);
+    Page<User> getUsers(Page<User> page);
 
     User getUserByTel(String tel);
+
+    Page<User> getUsersByCondition(Page<User> page, String tel, String lastName, String firstName, String idCard);
 }

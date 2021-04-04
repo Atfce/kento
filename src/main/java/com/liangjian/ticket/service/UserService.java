@@ -1,5 +1,6 @@
 package com.liangjian.ticket.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangjian.ticket.dto.UserDTO;
 import com.liangjian.ticket.entity.User;
@@ -66,11 +67,24 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         return Result.ok();
     }
 
-    public void changeUserInfo(Integer id, String lastName, String firstName, String idCard) {
+    public void changeUserInfo(Integer id, String lastName, String firstName, String idCard, Byte gender, String password) {
         User user = this.getById(id);
+        if (Objects.isNull(user)) {
+            throw new RuntimeException("找不到该用户的数据！");
+        }
         user.setLastName(lastName);
         user.setFirstName(firstName);
         user.setIdCard(idCard);
+        user.setGender(gender);
+        if (!Objects.isNull(password)) {
+            String salt = CommonUtil.getRandomStr(8);
+            user.setSalt(salt);
+            user.setPassword(DigestUtils.md5DigestAsHex((password + salt).getBytes()));
+        }
         this.saveOrUpdate(user);
+    }
+
+    public Page<User> getUsersByCondition(Page<User> page, String tel, String lastName, String firstName, String idCard) {
+        return baseMapper.getUsersByCondition(page, tel, lastName, firstName, idCard);
     }
 }
