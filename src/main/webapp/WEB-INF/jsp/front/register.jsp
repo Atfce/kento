@@ -172,6 +172,7 @@
         $.postWithDialog("${ctx}/common/send_tel_code", {
             "tel": tel
         }, function (data) {
+            alert("验证码发送成功！验证码是" + data.telCode + "(测试用)")
             var that = $("#getValidCodeBtn");
             var timeo = 60;
             var timeStop = setInterval(function () {

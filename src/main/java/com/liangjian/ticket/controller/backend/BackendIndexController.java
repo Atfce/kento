@@ -21,6 +21,13 @@ public class BackendIndexController {
         return "/backend/403";
     }
 
+    @RequestMapping("logout")
+    @ResponseBody
+    public Result logout(HttpSession session) {
+        session.invalidate();
+        return Result.ok();
+    }
+
     @PostMapping("login")
     @ResponseBody
     public Result login(@RequestParam String username, @RequestParam String password, HttpSession session) {

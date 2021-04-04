@@ -41,6 +41,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">超级管理员</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="logout">退出</a>
+            </li>
         </ul>
     </div>
 </nav>
+
+<script>
+    $("#logout").click(function () {
+        $.getWithCallback("${ctx}/backend/index/logout", function (data) {
+            alert("退出成功！");
+            window.location.href = "${ctx}/backend/index";
+        });
+    })
+</script>

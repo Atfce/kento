@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import com.liangjian.ticket.service.CommonService;
 import com.liangjian.ticket.utils.CommonUtil;
+import com.liangjian.ticket.vo.Const;
 import com.liangjian.ticket.vo.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,8 @@ public class CommonController {
             return Result.failed("请输入正确的手机号");
         }
         if (commonService.sendTelCode(session, tel)) {
-            return Result.ok();
+            //测试用  把验证码传回去前端
+            return Result.ok().data("telCode", session.getAttribute(Const.TEL_CODE_KEY + tel));
         } else {
             return Result.failed("未知错误！发送短信验证码失败！请稍后再试！");
         }
