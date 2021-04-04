@@ -18,6 +18,14 @@
                 </c:if>">
                 <a class="nav-link" href="${ctx}/index">首页</a>
             </li>
+            <c:if test="${user != null}">
+                <li class="nav-item
+                <c:if test="${fn:contains(path,'/user')}">
+                    active
+                </c:if>">
+                    <a class="nav-link" href="${ctx}/user/info">个人中心</a>
+                </li>
+            </c:if>
         </ul>
 
         <ul class="navbar-nav">
@@ -33,7 +41,10 @@
                 </li>
             </c:if>
             <c:if test="${user != null}">
-                <li class="nav-item">
+                <li class="nav-item
+                <c:if test="${fn:contains(path,'/user')}">
+                    active
+                </c:if>">
                     <a class="nav-link" href="${ctx}/user/info"><c:out value="${user.lastName}"/><c:out value="${user.firstName}"/> <c:out value="${user.tel}"/></a>
                 </li>
                 <li class="nav-item">
