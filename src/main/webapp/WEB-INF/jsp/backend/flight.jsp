@@ -8,20 +8,22 @@
 <%@include file="header.jsp" %>
 
 <form style="margin-top: 50px">
-    <div class="form-row" action="${ctx}/index" method="get">
-        <div class="offset-2 form-group col-md-2">
-            <input type="text" class="form-control" name="departureCity" id="departureCity" placeholder="请输入出发城市">
-        </div>
-        <div class="form-group col-md-2">
-            <input type="text" class="form-control" name="arrivalCity" id="arrivalCity" placeholder="请输入到达城市">
-        </div>
-        <div class="form-group col-md-2">
-            <input autocomplete="off" type="text" name="scheduledTime" class="form-control" id="scheduledTime" placeholder="请输入出发时间">
-        </div>
-        <div class="col-md-3">
-            <button type="submit" class="btn btn-primary" id="queryFlight">查询航班</button>
-            <button type="button" class="btn btn-info" id="addFlight">添加航班</button>
-        </div>
+    <div class="form-row">
+        <form method="get">
+            <div class="offset-2 form-group col-md-2">
+                <input type="text" class="form-control" name="departureCity" id="departureCity" placeholder="请输入出发城市">
+            </div>
+            <div class="form-group col-md-2">
+                <input type="text" class="form-control" name="arrivalCity" id="arrivalCity" placeholder="请输入到达城市">
+            </div>
+            <div class="form-group col-md-2">
+                <input autocomplete="off" type="text" name="scheduledTime" class="form-control" id="scheduledTime" placeholder="请输入出发时间">
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary" id="queryFlight">查询航班</button>
+                <button type="button" class="btn btn-info" id="addFlight">添加航班</button>
+            </div>
+        </form>
     </div>
 </form>
 

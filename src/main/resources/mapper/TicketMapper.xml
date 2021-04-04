@@ -58,4 +58,30 @@
         WHERE t.status = #{status} and t.user_id = #{userId}
         ORDER BY t.create_time desc
     </select>
+
+    <select id="getTicketsByStatusAndIdAndTel" resultMap="ticketMap">
+        SELECT t.id t_id, t.user_id, t.create_time, t.pay_time, t.finished_time, t.status t_status, t.flight_id,
+         t.cost, t.traveler_name, t.id_card, t.tel, f.id f_id, f.flight_no, f.scheduled_departure, f.scheduled_arrival,
+         f.departure_city, f.arrival_city, f.status f_status, f.aircraft, f.seat_total, f.seat_empty, f.amount
+        FROM ticket t
+        LEFT JOIN flight f ON t.flight_id = f.id
+        <where>
+            <if test="id != null and id != ''">
+                and t.id = #{id}
+            </if>
+            <if test="tel != null and tel != ''">
+                and t.tel = #{tel}
+            </if>
+            <if test="status != null">
+                and t.status = #{status}
+            </if>
+        </where>
+        ORDER BY t.create_time DESC
+    </select>
+
+    <update id="updateTicket">
+        UPDATE ticket
+        SET traveler_name = #{travelerName}, tel = #{tel}, id_card = #{idCard}
+        WHERE id = #{id}
+    </update>
 </mapper>

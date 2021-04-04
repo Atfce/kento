@@ -19,4 +19,8 @@ public interface TicketMapper extends BaseMapper<Ticket> {
     void updateStatus(String id, Integer status);
 
     Page<Ticket> getTicketsByStatusAndUserId(Page<Ticket> page, Integer status, Integer userId);
+
+    Page<Ticket> getTicketsByStatusAndIdAndTel(Page<Ticket> page, Integer status, String id, String tel);
+
+    void updateTicket(String id, String travelerName, String tel, String idCard);
 }

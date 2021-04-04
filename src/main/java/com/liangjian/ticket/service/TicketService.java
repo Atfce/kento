@@ -86,4 +86,13 @@ public class TicketService extends ServiceImpl<TicketMapper, Ticket> {
         Page<Ticket> page = new Page<>(current, size);
         return baseMapper.getTicketsByStatusAndUserId(page, status, userId);
     }
+
+    public Page<Ticket> getTicketsByStatusAndUserIdAndTel(Integer current, Integer size, Integer status, String id, String tel) {
+        Page<Ticket> page = new Page<>(current, size);
+        return baseMapper.getTicketsByStatusAndIdAndTel(page, status, id, tel);
+    }
+
+    public void updateTicket(String id, String travelerName, String tel, String idCard) {
+        baseMapper.updateTicket(id, travelerName, tel, idCard);
+    }
 }
