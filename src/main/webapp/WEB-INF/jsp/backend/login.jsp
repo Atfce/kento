@@ -20,13 +20,13 @@
                     <fieldset>
                         <div class="input-group input-group-lg">
                             <input type="text" class="form-control" id="username"
-                                   placeholder="用户名">
+                                   placeholder="用户名" value="admin">
                         </div>
                         <div class="clearfix"></div>
                         <br>
                         <div class="input-group input-group-lg">
                             <input type="password" class="form-control" id="password"
-                                   placeholder="密码">
+                                   placeholder="密码" value="123">
                         </div>
                         <div class="clearfix"></div>
                         <p class="center">
