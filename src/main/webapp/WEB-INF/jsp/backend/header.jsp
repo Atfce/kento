@@ -19,7 +19,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link ml-3
-                <c:if test="${fn:contains(path,'ticket')}">
+                <c:if test="${fn:contains(path,'backend/ticket')}">
                     active
                 </c:if>" href="${ctx}/backend/ticket">订单管理</a>
             </li>

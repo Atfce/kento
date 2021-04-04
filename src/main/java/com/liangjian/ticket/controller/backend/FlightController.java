@@ -36,6 +36,9 @@ public class FlightController {
     public Page<Flight> getList(@RequestParam(defaultValue = "1") Integer start, @RequestParam(defaultValue = "15") Integer length,
                                 @RequestParam(defaultValue = "") String departureCity, @RequestParam(defaultValue = "") String arrivalCity,
                                 @RequestParam(defaultValue = "") String scheduledTime) {
+        if (" ".equals(departureCity) && " ".equals(arrivalCity) && " ".equals(scheduledTime)) {
+            return new Page<>();
+        }
         return flightService.getFlightPage(start / length + 1, length, departureCity, arrivalCity, scheduledTime);
     }
 

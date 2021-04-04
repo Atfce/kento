@@ -8,21 +8,20 @@
 <%@include file="header.jsp" %>
 
 <form style="margin-top: 50px">
-    <div class="form-row">
+    <div class="form-row" action="${ctx}/index" method="get">
         <div class="offset-2 form-group col-md-2">
-            <input type="text" class="form-control" id="departureCity" placeholder="请输入出发城市">
+            <input type="text" class="form-control" name="departureCity" id="departureCity" placeholder="请输入出发城市">
         </div>
         <div class="form-group col-md-2">
-            <input type="text" class="form-control" id="arrivalCity" placeholder="请输入到达城市">
+            <input type="text" class="form-control" name="arrivalCity" id="arrivalCity" placeholder="请输入到达城市">
         </div>
         <div class="form-group col-md-2">
-            <input autocomplete="off" type="text" class="form-control" id="scheduledTime" placeholder="请输入出发时间">
+            <input autocomplete="off" type="text" name="scheduledTime" class="form-control" id="scheduledTime" placeholder="请输入出发时间">
         </div>
         <div class="col-md-3">
-            <button type="button" class="btn btn-primary" id="queryFlight">查询航班</button>
+            <button type="submit" class="btn btn-primary" id="queryFlight">查询航班</button>
             <button type="button" class="btn btn-info" id="addFlight">添加航班</button>
         </div>
-    </div>
     </div>
 </form>
 
@@ -30,6 +29,7 @@
     <table id="datatable" class="display" style="width:100%">
         <thead>
         <tr>
+            <th>航班id</th>
             <th>航班编号</th>
             <th>飞机型号</th>
             <th>起飞时间</th>
@@ -122,6 +122,14 @@
 <script>
     var flights = [];
     $(function () {
+        var departureCity = getQueryVariable("departureCity") ? getQueryVariable("departureCity") : "";
+        var arrivalCity = getQueryVariable("arrivalCity") ? getQueryVariable("arrivalCity") : "";
+        var scheduledTime = getQueryVariable("scheduledTime") ? getQueryVariable("scheduledTime") : "";
+
+        $("#departureCity").val(decodeURI(departureCity));
+        $("#arrivalCity").val(decodeURI(arrivalCity));
+        $("#scheduledTime").val(decodeURI(scheduledTime));
+
         $('#scheduledTime').datetimepicker({
             format: "yyyy-mm-dd",
             todayBtn: 1,
@@ -167,6 +175,9 @@
             });
         });
 
+        var queryUrl = "${ctx}/backend/flight/get_list?departureCity=" + departureCity
+            + "&arrivalCity=" + arrivalCity
+            + "&scheduledTime=" + scheduledTime;
         var draw = 1;
         var dt = $("#datatable").dataTableWithDefault(
             {
@@ -174,7 +185,7 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "${ctx}/backend/flight/get_list",
+                    url: queryUrl,
                     dataSrc: function (json) {
                         json.draw = draw++;
                         json.recordsTotal = json.total;
@@ -188,6 +199,7 @@
                     },
                 },
                 columns: [
+                    {data: "id"},
                     {data: "flightNo"},
                     {data: "aircraft"},
                     {data: "scheduledDeparture"},
@@ -231,12 +243,12 @@
             }
         );
 
-        $("#queryFlight").click(function () {
-            var url = "${ctx}/backend/flight/get_list?departureCity=" + $("#departureCity").val().trim()
-                + "&arrivalCity=" + $("#arrivalCity").val().trim()
-                + "&scheduledTime=" + $("#scheduledTime").val().trim();
-            dt.api().ajax.url(url).load();
-        });
+        <%--$("#queryFlight").click(function () {--%>
+        <%--    var url = "${ctx}/backend/flight/get_list?departureCity=" + $("#departureCity").val().trim()--%>
+        <%--        + "&arrivalCity=" + $("#arrivalCity").val().trim()--%>
+        <%--        + "&scheduledTime=" + $("#scheduledTime").val().trim();--%>
+        <%--    dt.api().ajax.url(url).load();--%>
+        <%--});--%>
     });
 
     function onDelete(id) {
