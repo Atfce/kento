@@ -7,6 +7,7 @@ import com.liangjian.ticket.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +23,7 @@ public class TicketController {
         return "/backend/ticket";
     }
 
-    @RequestMapping("get_list")
+    @GetMapping("get_list")
     @ResponseBody
     public Page<Ticket> getTickets(@RequestParam(defaultValue = "1") Integer start, @RequestParam(defaultValue = "15") Integer length,
                                    @RequestParam(defaultValue = "") String ticketId, @RequestParam(defaultValue = "") String tel,

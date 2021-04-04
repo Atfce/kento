@@ -146,5 +146,26 @@ function leftTime(date) {
         +tow(second) + '秒';
 }
 
+function cutStr(str, len){
+    var length = 0;
+    var string = '';
+    if (len > str.length) {
+        return str;
+    }else{
+        for (var i = 0; i < len; i++) {
+            var a = str.charAt(i);
+            length++;
+            if(escape(a).length > 4){
+                length ++;
+            }
+            string = string.concat(a);
+            if (length >= len) {
+                string = string.concat("...");
+                return string;
+            }
+        }
+    }
+}
+
 
 
