@@ -40,7 +40,7 @@
     </table>
 </div>
 
-<div class="modal fade bd-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="detailModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -210,12 +210,6 @@
                 ]
             }
         );
-        <%--$("#queryFlight").click(function () {--%>
-        <%--    var queryUrl = "${ctx}/get_flight_list?departureCity=" + $("#departureCity").val().trim()--%>
-        <%--        + "&arrivalCity=" + $("#arrivalCity").val().trim()--%>
-        <%--        + "&scheduledTime=" + $("#scheduledTime").val().trim();--%>
-        <%--    dt.api().ajax.url(queryUrl).load();--%>
-        <%--});--%>
     });
 
     function onBuy(id) {

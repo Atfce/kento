@@ -6,7 +6,6 @@ import com.liangjian.ticket.entity.Ticket;
 import com.liangjian.ticket.entity.User;
 import com.liangjian.ticket.service.FlightService;
 import com.liangjian.ticket.service.TicketService;
-import com.liangjian.ticket.service.UserService;
 import com.liangjian.ticket.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +23,6 @@ public class BookingController {
     private FlightService flightService;
     @Autowired
     private TicketService ticketService;
-    @Autowired
-    private HttpSession session;
 
     @GetMapping("")
     public String bookingJsp() {

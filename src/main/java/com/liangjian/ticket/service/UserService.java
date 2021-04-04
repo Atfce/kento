@@ -65,4 +65,12 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         baseMapper.insert(user);
         return Result.ok();
     }
+
+    public void changeUserInfo(Integer id, String lastName, String firstName, String idCard) {
+        User user = this.getById(id);
+        user.setLastName(lastName);
+        user.setFirstName(firstName);
+        user.setIdCard(idCard);
+        this.saveOrUpdate(user);
+    }
 }

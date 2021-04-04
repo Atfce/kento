@@ -1,6 +1,7 @@
 package com.liangjian.ticket.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.liangjian.ticket.entity.Ticket;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,4 +17,6 @@ public interface TicketMapper extends BaseMapper<Ticket> {
     List<Ticket> getExpireTickets(Timestamp expireTime);
 
     void updateStatus(String id, Integer status);
+
+    Page<Ticket> getTicketsByStatusAndUserId(Page<Ticket> page, Integer status, Integer userId);
 }

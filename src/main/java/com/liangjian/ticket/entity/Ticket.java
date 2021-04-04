@@ -21,7 +21,7 @@ public class Ticket {
     private Timestamp payTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Timestamp finishedTime;
-    private Integer status;     //-1已取消  0待支付  1已支付
+    private Integer status;     //-1已取消  0待支付  1已支付待出行  2已完成
     private Integer flightId;
     private BigDecimal cost;
     private String travelerName;

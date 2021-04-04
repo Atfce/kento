@@ -1,5 +1,6 @@
 package com.liangjian.ticket.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.liangjian.ticket.dto.TicketDTO;
 import com.liangjian.ticket.entity.Flight;
@@ -79,5 +80,10 @@ public class TicketService extends ServiceImpl<TicketMapper, Ticket> {
             baseMapper.updateStatus(ticket.getId(), -1);
             flightMapper.increase(ticket.getFlightId(), 1);
         }
+    }
+
+    public Page<Ticket> getTicketsByStatusAndUserId(Integer current, Integer size, Integer status, Integer userId) {
+        Page<Ticket> page = new Page<>(current, size);
+        return baseMapper.getTicketsByStatusAndUserId(page, status, userId);
     }
 }
