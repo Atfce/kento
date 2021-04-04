@@ -12,6 +12,7 @@ import com.liangjian.ticket.vo.Result;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 import java.util.Objects;
@@ -76,7 +77,7 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         user.setFirstName(firstName);
         user.setIdCard(idCard);
         user.setGender(gender);
-        if (!Objects.isNull(password)) {
+        if (StringUtils.hasText(password)) {
             String salt = CommonUtil.getRandomStr(8);
             user.setSalt(salt);
             user.setPassword(DigestUtils.md5DigestAsHex((password + salt).getBytes()));
