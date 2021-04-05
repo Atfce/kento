@@ -153,6 +153,7 @@
         });
 
         $("#addFlight").unbind().click(function () {
+            $("#add").html("确定添加");
             $("#add30DaysDiv").css("display", "block");
             $("#addModal").modal("show");
 
@@ -266,6 +267,7 @@
     }
 
     function onEdit(id) {
+        $("#add").html("确定编辑");
         $("#modalTitle").html("更新航班信息");
         $("#add30DaysDiv").css("display", "none");
         $("#addModal [name='flightNo']").val(flights[id].flightNo);
